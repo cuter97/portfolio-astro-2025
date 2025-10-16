@@ -1,0 +1,180 @@
+---
+import { ModeToggle } from "@/components/common/ModeToggle";
+import { ModeLang } from "@/components/common/ModeLang";
+import { Icon } from "astro-icon/components";
+
+import { useTranslation } from "@/lib/utils";
+import type { lenguages } from "@/i18n/ui";
+import { MobileMenu } from "./MobileMenu";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import CustomLink from "./CustomLink.astro";
+
+const pathname = Astro.url.pathname;
+const currentLang = Astro.currentLocale || "en";
+const t = useTranslation(currentLang as keyof typeof lenguages);
+
+const menuItems = [
+  {
+    href: getRelativeLocaleUrl(currentLang, "/"),
+    label: t("navbar.home.title"),
+    text: t("navbar.home.description"),
+  },
+  {
+    href: `/${currentLang}/#experience`,
+    label: t("navbar.experience.title"),
+    text: t("navbar.experience.description"),
+  },
+  {
+    href: `/${currentLang}/#projects`,
+    label: t("navbar.projects.title"),
+    text: t("navbar.projects.description"),
+  },
+  {
+    href: `/${currentLang}/#skills`,
+    label: t("navbar.skills.title"),
+    text: t("navbar.skills.description"),
+  },
+  {
+    href: `/${currentLang}/#education`,
+    label: t("navbar.education.title"),
+    text: t("navbar.education.description"),
+  },
+  {
+    href: getRelativeLocaleUrl(currentLang, "/about"),
+    label: t("navbar.about.title"),
+    text: t("navbar.about.description"),
+  },
+  {
+    href: getRelativeLocaleUrl(currentLang, "/blog"),
+    label: t("navbar.blog.title"),
+    text: t("navbar.blog.description"),
+  },
+];
+---
+
+<nav
+  id="navbar"
+  aria-label="Main navigation"
+  class="w-full fixed top-0 left-0 right-0 z-20 transition-all duration-300"
+>
+  <div
+    class="max-w-7xl mx-auto h-20 flex items-center justify-between space-x-4 px-4"
+  >
+    <a
+      href={getRelativeLocaleUrl(currentLang, "/")}
+      id="portfolio-text"
+      aria-label="Go to homepage"
+      class="opacity-0 -translate-x-4 transition-all"
+    >
+      <Icon name="terminal" size={32} aria-hidden="true" />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex items-center gap-2" aria-label="Main navigation">
+      <CustomLink
+        href={getRelativeLocaleUrl(currentLang, "/")}
+        aria-label="Home page"
+        tooltip={false}
+        variant="secondary"
+        size="md"
+        className={pathname === getRelativeLocaleUrl(currentLang, "/")
+          ? "bg-foreground/10"
+          : ""}
+      >
+        {t("navbar.home.title")}
+      </CustomLink>
+
+      <CustomLink
+        href={getRelativeLocaleUrl(currentLang, "/about")}
+        aria-label="About page"
+        tooltip={false}
+        variant="secondary"
+        size="md"
+        className={pathname === getRelativeLocaleUrl(currentLang, "/about")
+          ? "bg-foreground/10"
+          : ""}
+      >
+        {t("navbar.about.title")}
+      </CustomLink>
+
+      <CustomLink
+        href={getRelativeLocaleUrl(currentLang, "/blog")}
+        aria-label="Blog page"
+        tooltip={false}
+        variant="secondary"
+        size="md"
+        className={pathname === getRelativeLocaleUrl(currentLang, "/blog")
+          ? "bg-foreground/10"
+          : ""}
+      >
+        {t("navbar.blog.title")}
+      </CustomLink>
+      <ModeToggle client:load aria-label="Toggle theme">
+        <Icon name="darkMode" size={28} aria-hidden="true" />
+      </ModeToggle>
+
+      <ModeLang
+        currentLocale={currentLang}
+        currentPath={pathname}
+        client:load
+        aria-label="Change language"
+      />
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="flex lg:hidden items-center gap-2 z-50">
+      <MobileMenu
+        client:load
+        locale={currentLang as "en" | "es"}
+        currentPath={pathname}
+        menuItems={menuItems}
+      >
+        <Icon name="darkMode" size={28} aria-hidden="true" />
+      </MobileMenu>
+    </div>
+  </div>
+</nav>
+
+<!-- Espaciador para compensar el navbar fijo -->
+<div class="h-20" aria-hidden="true"></div>
+
+<script>
+  function initNavbar() {
+    const navbar = document.getElementById("navbar");
+    const portfolioText = document.getElementById("portfolio-text");
+
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        navbar?.classList.add(
+          "bg-background/95",
+          "backdrop-blur-sm",
+          "border-b",
+          "border-terciary"
+        );
+        portfolioText?.classList.remove("opacity-0", "-translate-x-4");
+        portfolioText?.classList.add("opacity-100", "translate-x-0");
+      } else {
+        navbar?.classList.remove(
+          "bg-background/95",
+          "backdrop-blur-sm",
+          "border-b",
+          "border-terciary"
+        );
+        portfolioText?.classList.add("opacity-0", "-translate-x-4");
+        portfolioText?.classList.remove("opacity-100", "translate-x-0");
+      }
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    document.addEventListener("astro:before-preparation", () => {
+      window.removeEventListener("scroll", handleScroll);
+    });
+  }
+
+  initNavbar();
+
+  document.addEventListener("astro:page-load", initNavbar);
+</script>

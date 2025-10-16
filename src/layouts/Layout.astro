@@ -1,22 +1,107 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Navbar from "@/components/common/Navbar.astro";
+import Footer from "@/components/common/Footer.astro";
+import { Toaster } from "@/components/ui/sonner";
+
+import "../styles/global.css";
+import "sonner/dist/styles.css";
+
+const currentLang = Astro.currentLocale || "en";
+
+const { title = "Agustin Castets" } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang={currentLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - Portfolio</title>
+    <ClientRouter />
+    <script is:inline>
+      // Script que se ejecuta inmediatamente para evitar parpadeo
+      (function () {
+        function applyTheme() {
+          try {
+            var stored = localStorage.getItem("theme");
+            var isDark = false;
+
+            if (stored === "dark") {
+              isDark = true;
+            } else if (stored === "theme-light") {
+              isDark = false;
+            } else {
+              // Sin preferencia almacenada -> seguir system
+              isDark =
+                window.matchMedia &&
+                window.matchMedia("(prefers-color-scheme: dark)").matches;
+            }
+
+            if (isDark) {
+              document.documentElement.classList.add("dark");
+            } else {
+              document.documentElement.classList.remove("dark");
+            }
+          } catch (e) {
+            // localStorage inaccesible -> usar system
+            if (
+              window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches
+            ) {
+              document.documentElement.classList.add("dark");
+            }
+          }
+        }
+
+        applyTheme();
+      })();
+    </script>
+  </head>
+  <body class="bg-background font-roboto-mono">
+    <Navbar />
+    <slot />
+    <Footer />
+    <Toaster client:only="react" position="top-center" richColors />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+<script>
+  // Este script se ejecuta después de cada transición de página
+  function applyTheme() {
+    try {
+      const stored = localStorage.getItem("theme");
+      let isDark = false;
+
+      if (stored === "dark") {
+        isDark = true;
+      } else if (stored === "theme-light") {
+        isDark = false;
+      } else {
+        // Sin preferencia almacenada -> seguir system
+        isDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+      }
+
+      if (isDark) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    } catch (e) {
+      // localStorage inaccesible -> usar system
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
+        document.documentElement.classList.add("dark");
+      }
+    }
+  }
+
+  applyTheme();
+  document.addEventListener("astro:page-load", applyTheme);
+</script>

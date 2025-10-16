@@ -1,0 +1,23 @@
+{
+  "dates": {
+    "start": "Feb 2024",
+    "end": "Present"
+  },
+  "title": "Desarrollador Full Stack Freelance",
+  "location": "Rio Negro, Argentina - Remote",
+  "summary": "Experienced Full Stack Developer working freelance, creating personalized web solutions for various clients. I specialize in the complete development cycle, from UI/UX design to backend implementation and third-party service integration.",
+  "achievements": [
+    "Successfully delivered multiple web applications to clients, meeting their specific requirements and deadlines.",
+    "Received positive feedback from clients for the quality of the work done.",
+    "Contributed to the growth of the client's brand by providing valuable web solutions."
+  ],
+  "responsibilities": [
+    "Conceive, design, and develop complete web applications, covering both frontend and backend.",
+    "Work with clients to understand their needs and translate them into technical solutions.",
+    "Implement responsive and modern user interfaces.",
+    "Integrate APIs and third-party services.",
+    "Maintain and optimize existing applications."
+  ],
+  "company": null,
+  "lang": "es"
+}

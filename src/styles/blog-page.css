@@ -1,0 +1,45 @@
+.blog {
+  @apply dark:text-muted-foreground text-foreground;
+
+  .button {
+    @apply cursor-pointer inline-flex items-center gap-2 px-4 py-2 mt-12 bg-muted-foreground/10 hover:bg-foreground hover:text-background text-foreground rounded-full text-sm font-medium transition-colors;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-5xl text-foreground font-modak mb-4;
+  }
+
+  h2 {
+    @apply text-2xl font-bold text-foreground mb-2 lg:scroll-mt-28;
+  }
+
+  h3 {
+    @apply text-lg font-semibold text-foreground mb-2 scroll-mt-28;
+  }
+
+  p {
+    @apply text-sm lg:text-base mb-4;
+  }
+
+  img {
+    @apply rounded-xl;
+  }
+
+  ul {
+    @apply mb-6 space-y-2;
+
+    li {
+      @apply list-disc list-inside marker:text-terciary text-sm lg:text-base;
+    }
+  }
+
+  img {
+    @apply my-6;
+  }
+
+  .collapsible {
+    li {
+      @apply list-none;
+    }
+  }
+}

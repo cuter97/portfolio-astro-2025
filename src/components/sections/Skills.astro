@@ -1,0 +1,21 @@
+---
+import { type CollectionEntry } from "astro:content";
+import CardSkill from "../common/CardSkill.astro";
+import type { lenguages } from "@/i18n/ui";
+import { useTranslation } from "@/lib/utils";
+
+interface Props {
+  skills?: CollectionEntry<"skill">[];
+}
+
+const currentLang = Astro.currentLocale || 'en';
+const t = useTranslation(currentLang as keyof typeof lenguages);
+const { skills } = Astro.props as Props;
+---
+
+<section id="skills" class="space-y-4 scroll-mt-24">
+  <h3 class="text-3xl font-titan-one uppercase">{t("index.skills")}</h3>
+  <div class="grid grid-cols-3 md:grid-cols-6 gap-2 lg:gap-4">
+    {skills?.map((skill) => <CardSkill skill={skill} />)}
+  </div>
+</section>

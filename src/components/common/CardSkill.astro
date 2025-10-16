@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon/components";
+import { Card } from "../ui/card";
+import { CustomHoverCard } from "./CustomHoverCard";
+import type { CollectionEntry } from "astro:content";
+
+interface Prop {
+  skill: CollectionEntry<"skill">;
+}
+
+const { skill } = Astro.props as Prop;
+---
+
+<CustomHoverCard client:load skill={skill}>
+  <Card
+    className="max-w-32 h-36 group cursor-pointer flex flex-col items-center text-center text-muted-foreground hover:transition-all hover:duration-300 hover:bg-terciary/5"
+  >
+    <div class="flex flex-col items-center">
+      <Icon
+        name={skill.data.icon}
+        class="w-12 lg:w-14 h-12 lg:h-14 filter grayscale group-hover:grayscale-0 transition-all duration-300"
+      />
+    </div>
+    <p class="text-xs md:text-sm break-words px-3">
+      {skill.data.skill}
+    </p>
+  </Card>
+</CustomHoverCard>

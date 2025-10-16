@@ -1,0 +1,7 @@
+{
+  "skill": "React",
+  "description": "React is a JavaScript library for building user interfaces. It allows you to create reusable UI components and manage the state of your application.",
+  "release": "Released in 2013",
+  "icon": "react",
+  "lang": "es"
+}

@@ -1,0 +1,82 @@
+---
+import { getCollection } from "astro:content";
+import CustomLink from "@/components/common/CustomLink.astro";
+import { Badge } from "@/components/ui/badge";
+import Layout from "@/layouts/Layout.astro";
+import { useTranslation } from "@/lib/utils";
+import { ChevronLeft } from "lucide-react";
+import type { GetStaticPaths } from "astro";
+import type { lenguages } from "@/i18n/ui";
+
+export const prerender = true;
+const currentLang = Astro.currentLocale || "en";
+
+export const getStaticPaths = (async () => {
+  const blogs = await getCollection("blog");
+  const languages = ["es", "en"];
+
+  return languages.map((lang) => {
+    const filiteredBlogs = blogs.filter((blog) => blog.id.startsWith(lang));
+
+    return {
+      params: { lang },
+      props: {
+        filiteredBlogs,
+      },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const t = useTranslation(currentLang as keyof typeof lenguages);
+
+const { filiteredBlogs } = Astro.props;
+---
+
+<Layout title={t("navbar.blog.title")}>
+  <div
+    transition:name="transition"
+    transition:animate="fade"
+    class="h-screen max-w-4xl mx-auto space-y-8 px-4"
+  >
+    <a
+      href={`/${currentLang}/`}
+      class="inline-flex items-center gap-2 px-6 py-2 bg-muted-foreground/10 hover:bg-foreground hover:text-background rounded-full text-sm font-medium transition-colors"
+    >
+      <ChevronLeft size={16} />
+      {t("buttons.home")}
+    </a>
+    <h1 class="text-3xl font-titan-one mb-6">{t("blog.title")}</h1>
+    <div class="space-y-4">
+      {
+        filiteredBlogs.map((blog) => (
+          <article class="flex flex-col space-y-2 bg-muted-foreground/10 p-4 rounded-md border-1">
+            <div class="space-x-2">
+              {blog.data.tags.map((tag) => (
+                <Badge variant="default" key={tag}>
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+            <a
+              href={`/${currentLang}/blog/${blog.id.split("/")[1]}`}
+              class="text-2xl underline font-titan-one mt-2 text-terciary underline-offset-4 hover:text-primary hover:decoration-dotted"
+            >
+              {blog.data.title}
+            </a>
+            <p class="text-muted-foreground">{blog.data.description}</p>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center pt-4 lg:space-y-0 space-y-4">
+              <span>{blog.data.date}</span>
+              <CustomLink
+                href={`/${currentLang}/blog/${blog.id.split("/")[1]}`}
+                variant="default"
+                tooltip={false}
+              >
+                {t("buttons.readMore")}
+              </CustomLink>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,56 @@
+---
+import img from "@/assets/portfolio_img.webp";
+import { Image } from "astro:assets";
+import { Globe } from "lucide-react";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { ButtonsInfo } from "@/components/common/ButtonsInfo";
+
+import { useTranslation } from "@/lib/utils";
+import { Icon } from "astro-icon/components";
+import type { lenguages } from "@/i18n/ui";
+
+interface Props {
+  className?: string;
+}
+
+const currentLang = Astro.currentLocale || "en";
+const t = useTranslation(currentLang as keyof typeof lenguages);
+const { className } = Astro.props as Props;
+---
+
+<header class={`${className} flex flex-col items-center px-4 md:pb-20`}>
+  <figure
+    class="mb-5 border-2 rounded-xl border-terciary group relative overflow-hidden"
+  >
+    <a
+      href={getRelativeLocaleUrl(currentLang, "/about")}
+      class="relative block"
+    >
+      <Image
+        src={img}
+        alt="Foto de perfil de Agustin Castets"
+        width={168}
+        class="rounded-xl shadow-[0_0_300px_20px_rgba(255,255,255,0.2)] transition-all duration-300 group-hover:brightness-50"
+      />
+
+      <div
+        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      >
+        <Icon name="idCard" class="w-14 h-14 text-white drop-shadow-lg" />
+      </div>
+    </a>
+  </figure>
+  <div class="overflow-hidden text-center font-roboto-mono">
+    <h1 class="text-3xl font-titan-one mb-2">
+      {t!("header.name")}
+    </h1>
+    <h2 class="text-base text-balance text-muted-foreground mb-3">
+      {t!("header.profession")}
+    </h2>
+  </div>
+  <div class="flex items-center text-sm text-muted-foreground mb-3">
+    <Globe className="w-4 h-4 inline mr-1" />
+    {t!("header.place")}
+  </div>
+  <ButtonsInfo client:load lang={currentLang as keyof typeof lenguages} />
+</header>

@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { CardExperience } from "../common/CardExperience";
+import { useTranslation } from "@/lib/utils";
+import type { lenguages } from "@/i18n/ui";
+
+interface Props {
+  filterExperience?: CollectionEntry<"experience">[];
+}
+
+const currentLang = Astro.currentLocale || "en";
+const t = useTranslation(currentLang as keyof typeof lenguages);
+
+const { filterExperience } = Astro.props as Props;
+---
+
+<section id="experience" class="space-y-4 scroll-mt-24">
+  <h3 class="text-3xl font-titan-one uppercase">
+    {t("index.experience.title")}
+  </h3>
+  {filterExperience?.map((exp) => (
+    <CardExperience client:load experience={exp} currentLang={currentLang as keyof typeof lenguages} />
+  ))}
+</section>

@@ -1,0 +1,96 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Content from "@/components/Content.astro";
+import { getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+
+export const prerender = true;
+
+export const getStaticPaths = (async () => {
+  const [projects, skills, experiences, universities, certifications] =
+    await Promise.all([
+      getCollection("project"),
+      getCollection("skill"),
+      getCollection("experience"),
+      getCollection("university"),
+      getCollection("certification"),
+    ]);
+  const languages = ["es", "en"];
+
+  return languages.flatMap((lang) => {
+    const filteredProjects = projects.filter((proj) => {
+      return proj.id.startsWith(`${lang}/`);
+    });
+
+    const filteredSkills = skills.filter((skill) => {
+      return skill.id.startsWith(`${lang}/`);
+    });
+
+    const filterExperience = experiences
+      .filter((exp) => {
+        return exp.id.startsWith(`${lang}/`);
+      })
+      .sort((a, b) => {
+        const dateA =
+          a.data.dates.end === "Present"
+            ? new Date()
+            : new Date(a.data.dates.end);
+
+        const dateB =
+          b.data.dates.end === "Present"
+            ? new Date()
+            : new Date(b.data.dates.end);
+
+        return dateB.getTime() - dateA.getTime();
+      });
+
+    const filteredUniversities = universities.filter((uni) => {
+      return uni.id.startsWith(`${lang}/`);
+    });
+
+    const sortedCertifications = certifications
+      .filter((cert) => {
+        return cert.id.startsWith(`${lang}/`);
+      })
+      .sort((a, b) => {
+        const dateA = new Date(a.data.date);
+        const dateB = new Date(b.data.date);
+        return dateB.getTime() - dateA.getTime();
+      });
+
+    return {
+      params: { lang },
+      props: {
+        filteredProjects,
+        filteredSkills,
+        filterExperience,
+        filteredUniversities,
+        sortedCertifications,
+      },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const {
+  filteredProjects,
+  filteredSkills,
+  filterExperience,
+  sortedCertifications,
+  filteredUniversities,
+} = Astro.props;
+---
+
+<Layout title="Agustin Castets">
+  <main class="grid grid-cols-1 lg:grid-cols-12 max-w-7xl mx-auto relative">
+    <Header className="col-span-3 lg:sticky top-30 self-start" />
+    <Content
+      className="col-span-8 lg:col-start-5 mt-8"
+      projects={filteredProjects}
+      skills={filteredSkills}
+      experience={filterExperience}
+      universities={filteredUniversities}
+      certifications={sortedCertifications}
+    />
+  </main>
+</Layout>

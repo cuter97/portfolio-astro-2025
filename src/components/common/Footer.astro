@@ -1,0 +1,166 @@
+---
+import { linkedin, github, email } from "@/lib/const";
+import { useTranslation } from "@/lib/utils";
+import type { lenguages } from "@/i18n/ui";
+
+const currentLang = Astro.currentLocale || "en";
+const t = useTranslation(currentLang as keyof typeof lenguages);
+
+const navigationLinks = [
+  { href: `/${currentLang}`, label: t("navbar.home.title") },
+  { href: `/${currentLang}/#experience`, label: t("navbar.experience.title") },
+  { href: `/${currentLang}/#projects`, label: t("navbar.projects.title") },
+  { href: `/${currentLang}/#skills`, label: t("navbar.skills.title") },
+  { href: `/${currentLang}/#education`, label: t("navbar.education.title") },
+  { href: `/${currentLang}/about`, label: t("navbar.about.title") },
+  { href: `/${currentLang}/blog`, label: t("navbar.blog.title") },
+];
+
+const socialLinks = [
+  { href: linkedin, label: "LinkedIn" },
+  { href: github, label: "GitHub" },
+  {
+    href: currentLang === "es" ? "/pdf/cv-es.pdf" : "/pdf/cv-en.pdf",
+    label: t("footer.nav.resume"),
+  },
+];
+
+const resourceLinks = [
+  { href: "/rss.xml", label: "RSS Feed" },
+  { href: "/sitemap-index.xml", label: "Sitemap" },
+];
+---
+
+<footer class="border-t border-dashed border-gray-500 bg-[#1a1a1a] px-6 py-12">
+  <div class="mx-auto max-w-7xl">
+    <!-- Main content -->
+    <div class="mb-12 flex flex-col gap-8 lg:flex-row">
+      <!-- Left: Tagline + Cat -->
+      <div class="flex-1">
+        <p class="mb-6 text-base leading-relaxed text-gray-400">
+          {t("footer.description")}
+        </p>
+        <img src="/src/assets/gato.webp" alt="Gato" class="mt-4 h-auto w-44" />
+      </div>
+
+      <!-- Divider -->
+      <div class="mx-8 hidden border-l border-dashed border-gray-500 lg:block">
+      </div>
+
+      <!-- Right: Links grid -->
+      <div class="grid flex-[2] grid-cols-1 gap-8 md:grid-cols-3">
+        <!-- Navigation -->
+        <nav>
+          <h3 class="mb-4 font-bold text-white">{t("footer.nav.navegation")}</h3>
+          <ul class="space-y-2 text-sm">
+            {
+              navigationLinks.map(({ href, label }) => (
+                <li>
+                  <a
+                    href={href}
+                    class="text-gray-400 hover:underline hover:decoration-dotted hover:text-terciary hover:underline-offset-4"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+
+        <!-- Social Links -->
+        <nav>
+          <h3 class="mb-4 font-bold text-white">{t("footer.nav.links")}</h3>
+          <ul class="space-y-2 text-sm">
+            {
+              socialLinks.map(({ href, label }) => (
+                <li>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-gray-400 hover:underline hover:decoration-dotted hover:text-terciary hover:underline-offset-4"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+
+        <!-- Resources + Contact -->
+        <div>
+          <h3 class="mb-4 font-bold text-white">{t("footer.nav.resources")}</h3>
+          <ul class="mb-8 space-y-2 text-sm">
+            {
+              resourceLinks.map(({ href, label }) => (
+                <li>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-gray-400 hover:underline hover:decoration-dotted hover:text-terciary hover:underline-offset-4"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+
+          <div class="mt-8">
+            <p class="mb-2 text-lg font-bold text-white">{t("footer.nav.talk")}</p>
+            <a
+              href={`mailto:${email}`}
+              class="text-sm text-terciary transition-colors hover:text-white"
+            >
+              {email}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bottom -->
+    <div class="border-t border-dashed border-gray-500 pt-8">
+      <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+        <p class="text-base text-gray-400">
+          {t("footer.power")}{" "}
+          <a
+            href="https://astro.build"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-terciary transition-colors hover:text-white"
+          >
+            Astro
+          </a>
+        </p>
+        <p class="text-base text-gray-400">© Agustin Castets 2025</p>
+      </div>
+    </div>
+
+    <!-- Portfolio logo -->
+    <div class="mt-12">
+      <svg
+        viewBox="0 0 1300 240"
+        class="w-full opacity-70"
+        fill="#ffffff"
+        aria-label="Portfolio"
+      >
+        <text
+          x="50%"
+          y="50%"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          font-family="titan-one, sans-serif"
+          font-size="220"
+          font-weight="900"
+          letter-spacing="-0.02em"
+        >
+          PORTFOLIO
+        </text>
+      </svg>
+    </div>
+  </div>
+</footer>

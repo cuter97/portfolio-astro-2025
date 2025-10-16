@@ -1,0 +1,93 @@
+---
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import { NavBlog } from "@/components/common/NavBlog";
+import { Badge } from "@/components/ui/badge";
+import Layout from "@/layouts/Layout.astro";
+import { useTranslation } from "@/lib/utils";
+import type { lenguages } from "@/i18n/ui";
+import type { GetStaticPaths } from "astro";
+import { ChevronLeft, ChevronUp } from "lucide-react";
+
+export const prerender = true;
+
+export const getStaticPaths = (async () => {
+  const blogs = await getCollection("blog");
+
+  return blogs.map((blog) => {
+    const [lang, slug] = blog.id.split("/");
+    return {
+      params: { lang, slug },
+      props: {
+        blog,
+      },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const currentLang = Astro.currentLocale || "en";
+const t = useTranslation(currentLang as keyof typeof lenguages);
+
+const { blog } = Astro.props;
+const { Content, headings } = await render(blog);
+---
+
+<Layout title={blog.data.title}>
+  <article
+    transition:name="transition"
+    transition:animate="fade"
+    class="flex max-w-7xl mx-auto gap-6 px-4 pb-12 lg:px-0"
+  >
+    <div class="blog max-w-4xl px-4">
+      <a
+        href={`/${blog.id.split("/")[0]}/blog`}
+        class="button mb-6"
+      >
+        <ChevronLeft size={16} />
+        {t("buttons.myBlog")}
+      </a>
+
+      <div
+        class="mb-6 flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-6"
+      >
+        <span class="space-x-2">
+          {
+            blog.data.tags.map((tag) => (
+              <Badge
+                variant="default"
+                className="bg-terciary text-sm"
+                key={tag}
+              >
+                {tag}
+              </Badge>
+            ))
+          }
+        </span>
+        <span class="text-base text-muted-foreground">
+          {blog.data.date}
+        </span>
+      </div>
+      <h1>
+        {blog.data.title}
+      </h1>
+      <p class="text-sm lg:text-base text-muted-foreground mb-4">
+        {blog.data.description}
+      </p>
+      <div class="block lg:hidden flex-shrink-0">
+        <NavBlog client:only="react" headings={headings} title={t("blog.onThisPage")} />
+      </div>
+      <Content />
+
+      <button
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="button"
+      >
+        <ChevronUp size={16} />
+        {t("buttons.backToTop")}
+      </button>
+    </div>
+    <div class="hidden lg:block">
+      <NavBlog client:only="react" headings={headings} title={t("blog.onThisPage")} />
+    </div>
+  </article>
+</Layout>

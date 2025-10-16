@@ -1,0 +1,26 @@
+{
+  "dates": {
+    "start": "Jul 2022",
+    "end": "Feb 2023"
+  },
+  "title": "Junior Full Stack Developer",
+  "company": {
+    "name": "DevtionIT",
+    "url": "https://devtionit.com"
+  },
+  "location": "Buenos Aires, Argentina - Remote",
+  "summary": "Developed and maintained web applications using React.js. Collaborated with the team to implement new features and fix bugs. Strengthened my React skills by working on large team projects.",
+  "achievements": [
+    "Successfully delivered multiple web applications to clients, meeting their specific requirements and deadlines.",
+    "Received positive feedback from clients for the quality of the work done.",
+    "Contributed to the growth of the client's brand by providing valuable web solutions."
+  ],
+  "responsibilities": [
+    "Developed and maintained interactive user interfaces using React.js.",
+    "Collaborated with designers to translate user designs into functional and attractive interfaces.",
+    "Participated in code reviews and contributed to team best practices.",
+    "Debugged and resolved issues in production applications.",
+    "Worked with REST APIs to integrate frontend with backend services."
+  ],
+  "lang": "en"
+}

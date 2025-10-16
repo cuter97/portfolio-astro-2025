@@ -1,0 +1,68 @@
+---
+import { ExternalLink, GraduationCap } from "lucide-react";
+import CustomLink from "../common/CustomLink.astro";
+import type { CollectionEntry } from "astro:content";
+import { CertificationsContainer } from "../common/CertificationsContainer";
+import { drive } from "@/lib/const";
+
+interface Props {
+  universities?: CollectionEntry<"university">[];
+  certifications?: CollectionEntry<"certification">[];
+}
+import { useTranslation } from "@/lib/utils";
+import type { lenguages } from "@/i18n/ui";
+
+const currentLang = Astro.currentLocale || "en";
+const t = useTranslation(currentLang as keyof typeof lenguages);
+const { universities, certifications } = Astro.props as Props;
+---
+
+<section id="education" class="space-y-6 scroll-mt-24">
+  <h3 class="text-3xl font-titan-one uppercase">{t("index.education")}</h3>
+  {
+    universities?.map((uni) => (
+      <div class="flex flex-col md:flex-row justify-between md:items-center">
+        <div>
+          <div class="flex flex-col">
+            <div class="flex items-center">
+              <div>
+                <GraduationCap className="w-6 h-6 mr-2 md:w-7 md:h-7" />
+              </div>
+              <CustomLink
+                href={uni.data.link}
+                descriptionTooltip={t("tooltips.viewCarrer")}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {uni.data.title}
+              </CustomLink>
+            </div>
+          </div>
+          <p class="ml-7 md:ml-9 mt-2 md:mt-1 text-muted-foreground text-sm md:text-md">
+            {uni.data.universityName}
+          </p>
+        </div>
+        <span class="ml-7 md:ml-9 text-muted-foreground text-sm md:text-md mt-2 md:mt-0">
+          {uni.data.dates.start} - {uni.data.dates.end}
+        </span>
+      </div>
+    ))
+  }
+  <h4 class="text-2xl font-titan-one uppercase mt-10">
+    {t("index.certifications")}
+  </h4>
+  <CertificationsContainer client:load certifications={certifications} currentLang={currentLang as keyof typeof lenguages} />
+  <h5 class="text-md lg:text-lg">
+    {t("index.driveText")}
+    <CustomLink
+      variant="primary"
+      href={drive}
+      descriptionTooltip={t("tooltips.viewCert")}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>Google drive</span>
+      <ExternalLink size={18} className="text-terciary" />
+    </CustomLink>
+  </h5>
+</section>

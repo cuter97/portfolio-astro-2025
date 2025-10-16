@@ -1,0 +1,31 @@
+.card-project {
+  @apply dark:text-muted-foreground text-foreground;
+
+  h1 {
+    @apply text-4xl lg:text-5xl text-foreground font-modak mb-4;
+  }
+
+  h2 {
+    @apply text-xl font-bold text-foreground mb-2;
+  }
+
+  p {
+    @apply text-sm lg:text-base mb-4;
+  }
+
+  img {
+    @apply rounded-xl;
+  }
+
+  ul {
+    @apply mb-6;
+
+    li {
+      @apply list-disc list-inside marker:text-terciary text-sm lg:text-base;
+    }
+  }
+
+  img {
+    @apply my-6;
+  }
+}
