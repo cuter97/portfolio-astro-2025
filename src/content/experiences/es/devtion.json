@@ -8,19 +8,17 @@
     "name": "DevtionIT",
     "url": "https://devtionit.com"
   },
-  "location": "Buenos Aires, Argentina - Remote",
-  "summary": "Developed and maintained web applications using React.js. Collaborated with the team to implement new features and fix bugs. Strengthened my React skills by working on large team projects.",
+  "location": "Buenos Aires, Argentina - Remoto",
+  "summary": "Desarrollo y mantenimiento de aplicaciones web utilizando React.js. Colaboré con el equipo para implementar nuevas funciones y corregir errores. Fortalecí mis habilidades en React al trabajar en grandes proyectos en equipo.",
   "achievements": [
-    "Successfully delivered multiple web applications to clients, meeting their specific requirements and deadlines.",
-    "Received positive feedback from clients for the quality of the work done.",
-    "Contributed to the growth of the client's brand by providing valuable web solutions."
+    "Contribuí a varios proyectos importantes, mejorando la funcionalidad y la usabilidad de las aplicaciones.",
+    "Implementé soluciones eficientes que optimizaron el rendimiento de la aplicación, resultando en tiempos de carga más rápidos.",
+    "Recibí reconocimiento del equipo por mi capacidad para resolver problemas y mi compromiso con la calidad del código."
   ],
   "responsibilities": [
-    "Developed and maintained interactive user interfaces using React.js.",
-    "Collaborated with designers to translate user designs into functional and attractive interfaces.",
-    "Participated in code reviews and contributed to team best practices.",
-    "Debugged and resolved issues in production applications.",
-    "Worked with REST APIs to integrate frontend with backend services."
+    "Desarrollé y mantuve interfaces de usuario interactivas utilizando React.js.",
+    "Colaboré con diseñadores para traducir diseños de usuario en código funcional y estilizado.",
+    "Implementé prácticas de desarrollo ágil para mejorar la eficiencia del equipo y la calidad del producto final."
   ],
   "lang": "es"
 }

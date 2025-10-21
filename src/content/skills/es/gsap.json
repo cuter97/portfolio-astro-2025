@@ -1,0 +1,8 @@
+{
+  "skill": "GSAP",
+  "description": "GSAP (GreenSock Animation Platform) es una potente librería de JavaScript para crear animaciones de alto rendimiento que funcionan en todos los navegadores principales.",
+  "release": "Lanzado en marzo de 2008",
+  "icon": "gsap",
+  "feed": false,
+  "lang": "es"
+}

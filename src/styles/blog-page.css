@@ -42,4 +42,16 @@
       @apply list-none;
     }
   }
+
+  pre {
+    @apply p-8 rounded-md my-4;
+  }
+
+  hr {
+    @apply my-6 border-muted-foreground/20;
+  }
+
+  blockquote {
+    @apply border-l-4 border-terciary pl-2 mt-3 mb-6;
+  }
 }

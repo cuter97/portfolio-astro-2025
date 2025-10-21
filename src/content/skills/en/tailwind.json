@@ -1,0 +1,8 @@
+{
+  "skill": "Tailwind",
+  "description": "Tailwind is a utility-first CSS framework that allows you to build custom designs without writing custom CSS.",
+  "release": "Released in 2020",
+  "icon": "tailwind",
+  "feed": true,
+  "lang": "en"
+}

@@ -16,9 +16,9 @@ interface Props {
 
 export const CardProject = ({ info, skills, currentLang }: Props) => {
   const t = useTranslation(currentLang);
-  
+
   return (
-    <Card>
+    <Card className="flex flex-col h-full">
       <CardHeader className='flex justify-between items-center min-h-[48px]'>
         <CardTitle className='text-xl font-titan-one font-normal'>
           {
@@ -46,7 +46,7 @@ export const CardProject = ({ info, skills, currentLang }: Props) => {
           </CustomTooltip>
         }
       </CardHeader>
-      <CardContent className='pb-2'>
+      <CardContent className='pb-2 flex-grow'>
         <p className="mb-2">{info.data.description}</p>
         <ul className="text-sm text-muted-foreground list-disc list-inside">
           {info.data.descriptionTags.map((cont) => (
@@ -54,7 +54,7 @@ export const CardProject = ({ info, skills, currentLang }: Props) => {
           ))}
         </ul>
       </CardContent>
-      <CardFooter className='flex items-center justify-between'>
+      <CardFooter className='flex items-center justify-between mt-auto'>
         <div className='flex items-center gap-2'>
           {skills?.map((skill) => (
             <CustomHoverCard key={skill.id} skill={skill}>

@@ -8,6 +8,7 @@ const project = defineCollection({
     description: z.string(),
     descriptionTags: z.array(z.string()),
     tags: z.array(reference("skill")),
+    pageTags: z.array(reference("skill")),
     githubLink: z.string().url().optional(),
     demoLink: z.string().url().optional(),
     lang: z.enum(["en", "es"]),

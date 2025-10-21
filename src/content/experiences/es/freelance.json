@@ -4,19 +4,18 @@
     "end": "Present"
   },
   "title": "Desarrollador Full Stack Freelance",
-  "location": "Rio Negro, Argentina - Remote",
-  "summary": "Experienced Full Stack Developer working freelance, creating personalized web solutions for various clients. I specialize in the complete development cycle, from UI/UX design to backend implementation and third-party service integration.",
+  "location": "Rio Negro, Argentina - Remoto",
+  "summary": "Experiencia como desarrollador Full Stack freelance, creando soluciones web personalizadas para diversos clientes. Especializado en el ciclo completo de desarrollo, desde el diseño de la interfaz hasta la implementación del backend y la integración de servicios de terceros.",
   "achievements": [
-    "Successfully delivered multiple web applications to clients, meeting their specific requirements and deadlines.",
-    "Received positive feedback from clients for the quality of the work done.",
-    "Contributed to the growth of the client's brand by providing valuable web solutions."
+    "Mejoré significativamente la experiencia del usuario y el rendimiento de las aplicaciones, como la reducción del 30% en los tiempos de carga en proyectos clave.",
+    "Integré exitosamente diversas APIs y servicios externos, ampliando las funcionalidades de las plataformas y automatizando procesos.",
+    "Apliqué mejores prácticas de desarrollo para asegurar un código robusto, eficiente y de fácil escalabilidad."
   ],
   "responsibilities": [
-    "Conceive, design, and develop complete web applications, covering both frontend and backend.",
-    "Work with clients to understand their needs and translate them into technical solutions.",
-    "Implement responsive and modern user interfaces.",
-    "Integrate APIs and third-party services.",
-    "Maintain and optimize existing applications."
+    "Concebir, diseñar y desarrollar aplicaciones web completas, abarcando tanto el frontend como el backend.",
+    "Colaborar estrechamente con clientes para transformar sus ideas en soluciones funcionales y escalables.",
+    "Implementar arquitecturas limpias y mantenibles que aseguren la longevidad y la facilidad de futuras expansiones de los proyectos.",
+    "Garantizar la seguridad y la fiabilidad de las aplicaciones, protegiendo los datos de los usuarios y las transacciones."
   ],
   "company": null,
   "lang": "es"

@@ -19,7 +19,7 @@ export const getStaticPaths = (async () => {
 
     const projectSkills = skills.filter(
       (skill) =>
-        project.data.tags.some((tag) => skill.id.endsWith(tag.id)) &&
+        project.data.pageTags.some((tag) => skill.id.endsWith(tag.id)) &&
         skill.data.lang === project.data.lang
     );
 
