@@ -1,0 +1,8 @@
+{
+  "skill": "Spring Security",
+  "description": "Un framework dentro del ecosistema Spring para autenticación y autorización, diseñado para proteger aplicaciones Java de manera robusta.",
+  "release": "Se unió en mayo de 2004",
+  "icon": "spring_security",
+  "feed": true,
+  "lang": "es"
+}

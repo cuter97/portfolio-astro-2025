@@ -1,0 +1,8 @@
+{
+  "skill": "Next.js",
+  "description": "Un framework basado en React para construir aplicaciones del lado del servidor renderizadas.",
+  "release": "Se unió en mayo de 2018",
+  "icon": "next",
+  "feed": true,
+  "lang": "es"
+}

@@ -1,0 +1,8 @@
+{
+  "skill": "MongoDB",
+  "description": "MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas.",
+  "release": "Joined February 2009",
+  "icon": "mongodb",
+  "feed": true,
+  "lang": "en"
+}

@@ -1,7 +1,8 @@
 {
   "skill": "Tailwind CSS",
-  "description": "Tailwind CSS is a utility-first CSS framework that allows you to build custom designs without writing custom CSS.",
-  "release": "Released in 2020",
+  "description": "Tailwind CSS es un framework de CSS de utilidad primero que te permite construir diseños personalizados sin escribir CSS personalizado.",
+  "release": "Se lanzó en 2020",
   "icon": "tailwindcss",
+  "feed": true,
   "lang": "es"
 }

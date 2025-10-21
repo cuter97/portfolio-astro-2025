@@ -1,0 +1,8 @@
+{
+  "skill": "Nest.js",
+  "description": "Un framework progresivo de Node.js para construir aplicaciones del lado del servidor escalables.",
+  "release": "Se unió en diciembre de 2017",
+  "icon": "nest",
+  "feed": true,
+  "lang": "es"
+}

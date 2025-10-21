@@ -1,0 +1,8 @@
+{
+  "skill": "i18n",
+  "description": "Un sistema de internacionalización que permite gestionar múltiples idiomas en aplicaciones web.",
+  "release": "Se unió en marzo de 2006",
+  "icon": "i18n",
+  "feed": false,
+  "lang": "es"
+}

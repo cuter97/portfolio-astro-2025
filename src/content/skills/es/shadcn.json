@@ -1,0 +1,8 @@
+{
+  "skill": "Shadcn/ui",
+  "description": "Una colección de componentes de interfaz de usuario construidos con Radix y personalizados con Tailwind CSS.",
+  "release": "Se unió en enero de 2023",
+  "icon": "shadcn",
+  "feed": false,
+  "lang": "es"
+}

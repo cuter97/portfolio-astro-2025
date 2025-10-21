@@ -1,0 +1,8 @@
+{
+  "skill": "Typescript",
+  "description": "A superset of JavaScript that adds static typing, enhancing developer productivity and code quality.",
+  "release": "Joined October 2012",
+  "icon": "typescript",
+  "feed": true,
+  "lang": "en"
+}

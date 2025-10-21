@@ -1,0 +1,8 @@
+{
+  "skill": "Node.js",
+  "description": "Un entorno de ejecución de JavaScript construido sobre el motor V8 de Chrome, que permite la ejecución del lado del servidor de JavaScript.",
+  "release": "Se unió en mayo de 2009",
+  "icon": "node",
+  "feed": true,
+  "lang": "es"
+}

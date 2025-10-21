@@ -1,0 +1,8 @@
+{
+  "skill": "Java",
+  "description": "Un lenguaje de programación de alto nivel, basado en clases, orientado a objetos, diseñado para tener pocas dependencias de implementación.",
+  "release": "Se unió en enero de 1996",
+  "icon": "java",
+  "feed": true,
+  "lang": "es"
+}

@@ -1,0 +1,8 @@
+{
+  "skill": "Maven",
+  "description": "Un proyecto de gestión y construcción para Java que utiliza un modelo de dependencias y un archivo POM para automatizar tareas comunes.",
+  "release": "Se unió en julio de 2004",
+  "icon": "maven",
+  "feed": true,
+  "lang": "es"
+}

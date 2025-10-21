@@ -1,0 +1,8 @@
+{
+  "skill": "Spring Boot",
+  "description": "Spring Boot es una herramienta que simplifica la configuración y el desarrollo de aplicaciones Spring al proporcionar un enfoque rápido y minimalista.",
+  "release": "Se unió en abril de 2014",
+  "icon": "spring_boot",
+  "feed": true,
+  "lang": "es"
+}

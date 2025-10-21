@@ -1,0 +1,8 @@
+{
+  "skill": "HTML",
+  "description": "HTML (HyperText Markup Language) es el lenguaje de marcado estándar para crear páginas web y aplicaciones web.",
+  "release": "Se unió en octubre de 1991",
+  "icon": "html",
+  "feed": true,
+  "lang": "es"
+}

@@ -3,23 +3,24 @@ import { ClientRouter } from "astro:transitions";
 import Navbar from "@/components/common/Navbar.astro";
 import Footer from "@/components/common/Footer.astro";
 import { Toaster } from "@/components/ui/sonner";
+import BaseHead from "@/components/BaseHead.astro";
 
 import "../styles/global.css";
 import "sonner/dist/styles.css";
 
 const currentLang = Astro.currentLocale || "en";
-
-const { title = "Agustin Castets" } = Astro.props;
+const { description, image, keys, title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={currentLang}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title} - Portfolio</title>
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      keywords={keys}
+    />
     <ClientRouter />
     <script is:inline>
       // Script que se ejecuta inmediatamente para evitar parpadeo

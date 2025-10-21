@@ -1,0 +1,8 @@
+{
+  "skill": "Docker",
+  "description": "Una plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores.",
+  "release": "Lanzado en marzo de 2013",
+  "icon": "docker",
+  "feed": true,
+  "lang": "es"
+}

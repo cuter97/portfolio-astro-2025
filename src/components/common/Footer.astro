@@ -2,6 +2,8 @@
 import { linkedin, github, email } from "@/lib/const";
 import { useTranslation } from "@/lib/utils";
 import type { lenguages } from "@/i18n/ui";
+import { Image } from "astro:assets";
+import img from "@/assets/gato.webp";
 
 const currentLang = Astro.currentLocale || "en";
 const t = useTranslation(currentLang as keyof typeof lenguages);
@@ -26,8 +28,8 @@ const socialLinks = [
 ];
 
 const resourceLinks = [
-  { href: "/rss.xml", label: "RSS Feed" },
-  { href: "/sitemap-index.xml", label: "Sitemap" },
+  { href: `/${currentLang}/rss.xml`, label: "RSS Feed" },
+  { href: `/sitemap-index.xml`, label: "Sitemap" },
 ];
 ---
 
@@ -40,7 +42,7 @@ const resourceLinks = [
         <p class="mb-6 text-base leading-relaxed text-gray-400">
           {t("footer.description")}
         </p>
-        <img src="/src/assets/gato.webp" alt="Gato" class="mt-4 h-auto w-44" />
+        <Image src={img} alt="gato logo" class="mt-4 h-auto w-44" />
       </div>
 
       <!-- Divider -->

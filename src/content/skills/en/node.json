@@ -1,0 +1,8 @@
+{
+  "skill": "Node.js",
+  "description": "A JavaScript runtime built on Chrome's V8 engine, enabling server-side execution of JavaScript.",
+  "release": "Joined May 2009",
+  "icon": "node",
+  "feed": true,
+  "lang": "en"
+}

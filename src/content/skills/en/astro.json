@@ -3,5 +3,6 @@
   "description": "Astro is a modern static site generator that allows you to build fast and performa websites using modern web technologies.",
   "release": "Released in August 2022",
   "icon": "astro",
+  "feed": true,
   "lang": "en"
 }

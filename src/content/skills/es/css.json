@@ -1,0 +1,8 @@
+{
+  "skill": "CSS",
+  "description": "Un lenguaje de hojas de estilo utilizado para describir la presentación de un documento escrito en HTML o XML.",
+  "release": "Lanzado en diciembre de 1996",
+  "icon": "css",
+  "feed": true,
+  "lang": "es"
+}

@@ -1,0 +1,8 @@
+{
+  "skill": "SASS",
+  "description": "A preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS), adding features like variables, nested rules, and mixins.",
+  "release": "Joined in 2006",
+  "icon": "sass",
+  "feed": false,
+  "lang": "en"
+}

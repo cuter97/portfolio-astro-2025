@@ -1,0 +1,8 @@
+{
+  "skill": "Docker",
+  "description": "A platform for developing, shipping, and running applications in containers.",
+  "release": "Released in 2013",
+  "icon": "docker",
+  "feed": true,
+  "lang": "en"
+}

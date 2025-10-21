@@ -1,0 +1,8 @@
+{
+  "skill": "NATS",
+  "description": "Un sistema de mensajería de alto rendimiento diseñado para aplicaciones nativas en la nube, que permite la comunicación entre servicios distribuidos.",
+  "release": "Se unió en junio de 2016",
+  "icon": "nats",
+  "feed": false,
+  "lang": "es"
+}

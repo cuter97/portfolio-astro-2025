@@ -64,6 +64,7 @@ export const labels = {
       name: "Agustin Castets",
       profession: "Full Stack Developer",
       place: "Rio Negro, Argentina",
+      available: "Available for work",
     },
     index: {
       experience: {
@@ -96,7 +97,9 @@ export const labels = {
       greeting: "Hello",
       intro: {
         paragraph1: "I focus on full stack development and UX/UI design, combining the technical side with the visual aspect of projects. I enjoy learning, experimenting, and understanding how things work — from new technologies and programming languages to topics like artificial intelligence, automation, and experience design. I really enjoy the process of building and improving, both professionally and personally.",
+        title2: "Outside of work",
         paragraph2: "Outside of coding, I love reading —especially fiction, philosophy, and psychology books— and spending time in nature. I live in a mountainous area with a lake, so I enjoy going to the beach to share mates with friends or heading into the mountains to build small shelters. I'm also passionate about woodworking, games, and good moments with coffee or mate.",
+        title3: "My philosophy",
         paragraph3: "I see development as a way to bring ideas to life and give them structure, without losing the human and creative side of the process."
       },
       areas: {
@@ -130,6 +133,13 @@ export const labels = {
         talk: "Let's Talk?"
       },
       power: "Powered by",
+    },
+    meta: {
+      index: {
+        title: "Agustin Castets",
+        description: "Agustin Castets, Full Stack Developer with experience in creating efficient and scalable web applications. Specialized in modern technologies in both the frontend and backend.",
+        keys: "Full Stack Developer, UX/UI Design, Learning, Optimization, React, Next.js, Node.js, Express, MongoDB, MySQL, PostgreSQL, Docker, Git, GitHub, npm, yarn, Vercel, Netlify, AWS, Azure, Google Cloud, Firebase, RESTful APIs, GraphQL, TypeScript, JavaScript, HTML, CSS, Sass, Tailwind CSS, Bootstrap, Material UI, Reactstrap, React Hooks, React Context API, React Router, Redux, State Management, Form Handling, Validation, Responsive Design, Performance Optimization, Accessibility, SEO, Cross-Browser Compatibility, Unit Testing, Integration Testing, End-to-End Testing, Continuous Integration, Continuous Deployment, Agile Methodology, Scrum, Kanban, Project Management, Team Collaboration, Communication, Problem Solving, Attention to Detail, Adaptability, Flexibility, Creativity, Innovation, Passion for Technology, Continuous Learning"
+      }
     }
   },
   es: {
@@ -192,6 +202,7 @@ export const labels = {
       name: "Agustin Castets",
       profession: "Desarrollador Full Stack",
       place: "Río Negro, Argentina",
+      available: "Disponible para trabajo",
     },
     index: {
       experience: {
@@ -224,7 +235,9 @@ export const labels = {
       greeting: "Hola",
       intro: {
         paragraph1: "Me dedico al desarrollo full stack y al diseño UX/UI, combinando la parte técnica con la parte visual de los proyectos. Me gusta aprender, experimentar y entender cómo funcionan las cosas: desde nuevas tecnologías y lenguajes de programación, hasta temas como inteligencia artificial, automatización o diseño de experiencias. Disfruto mucho el proceso de construir y mejorar, tanto en lo profesional como en lo personal.",
+        title2: "Fuera del trabajo",
         paragraph2: "Fuera del código, me encanta leer —especialmente libros de ficción, filosofía y psicología— y pasar tiempo en la naturaleza. Vivo en una zona montañosa con lago, por lo que disfruto ir a la playa a tomar mates con amigos o aventurarme a hacer refugios en la montaña. También me apasiona la carpintería, los juegos y los buenos momentos acompañados de café o mate.",
+        title3: "Mi filosofía",
         paragraph3: "Veo el desarrollo como una forma de materializar ideas y darles estructura, sin dejar de lado la parte humana y creativa del proceso."
       },
       areas: {
@@ -258,6 +271,13 @@ export const labels = {
         talk: "¿Hablamos?"
       },
       power: "Desarrollado con",
+    },
+    meta: {
+      index: {
+        title: "Agustin Castets",
+        description: "Agustin Castets, Desarrollador Full Stack con experiencia en la creación de aplicaciones web eficientes y escalables. Especializado en tecnologías modernas tanto en el frontend como en el backend.",
+        keys: "Full Stack Developer, UX/UI Design, Learning, Optimization, React, Next.js, Node.js, Express, MongoDB, MySQL, PostgreSQL, Docker, Git, GitHub, npm, yarn, Vercel, Netlify, AWS, Azure, Google Cloud, Firebase, RESTful APIs, GraphQL, TypeScript, JavaScript, HTML, CSS, Sass, Tailwind CSS, Bootstrap, Material UI, Reactstrap, React Hooks, React Context API, React Router, Redux, State Management, Form Handling, Validation, Responsive Design, Performance Optimization, Accessibility, SEO, Cross-Browser Compatibility, Unit Testing, Integration Testing, End-to-End Testing, Continuous Integration, Continuous Deployment, Agile Methodology, Scrum, Kanban, Project Management, Team Collaboration, Communication, Problem Solving, Attention to Detail, Adaptability, Flexibility, Creativity, Innovation, Passion for Technology, Continuous Learning"
+      }
     }
   },
 } as const;

@@ -1,0 +1,8 @@
+{
+  "skill": "Maven",
+  "description": "A project management and build tool for Java that uses a dependency model and a POM file to automate common tasks.",
+  "release": "Joined in July 2004",
+  "icon": "maven",
+  "feed": true,
+  "lang": "en"
+}

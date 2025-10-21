@@ -1,7 +1,8 @@
 {
   "skill": "Astro",
-  "description": "Astro is a modern static site generator that allows you to build fast and performa websites using modern web technologies.",
-  "release": "Released in August 2022",
+  "description": "Astro es un generador de sitios estáticos moderno que permite construir sitios web rápidos y de alto rendimiento utilizando tecnologías web modernas.",
+  "release": "Lanzado en agosto de 2022",
   "icon": "astro",
+  "feed": true,
   "lang": "es"
 }

@@ -1,0 +1,8 @@
+{
+  "skill": "GraphQL",
+  "description": "Un lenguaje de consulta para APIs y un tiempo de ejecución para ejecutar esas consultas utilizando un sistema de tipos definido para tus datos.",
+  "release": "Se unió en febrero de 2015",
+  "icon": "graphql",
+  "feed": true,
+  "lang": "es"
+}

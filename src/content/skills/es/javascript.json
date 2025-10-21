@@ -1,0 +1,8 @@
+{
+  "skill": "JavaScript",
+  "description": "Un lenguaje de programación versátil que se utiliza ampliamente para el desarrollo web, tanto en el lado del cliente como en el lado del servidor.",
+  "release": "Se unió en diciembre de 1995",
+  "icon": "javascript",
+  "feed": true,
+  "lang": "es"
+}

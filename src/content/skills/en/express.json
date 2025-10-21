@@ -1,0 +1,8 @@
+{
+  "skill": "Express.js",
+  "description": "A minimal and flexible Node.js web application framework, providing a robust set of features to develop web and mobile applications.",
+  "release": "Joined November 2010",
+  "icon": "express",
+  "feed": true,
+  "lang": "en"
+}

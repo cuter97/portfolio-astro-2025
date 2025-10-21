@@ -1,7 +1,8 @@
 {
   "skill": "React",
-  "description": "React is a JavaScript library for building user interfaces. It allows you to create reusable UI components and manage the state of your application.",
-  "release": "Released in 2013",
+  "description": "React es una biblioteca de JavaScript para construir interfaces de usuario. Permite crear componentes de interfaz de usuario reutilizables y gestionar el estado de tu aplicación.",
+  "release": "Se lanzó en 2013",
   "icon": "react",
+  "feed": true,
   "lang": "es"
 }

@@ -1,0 +1,8 @@
+{
+  "skill": "Framer Motion",
+  "description": "Una biblioteca para React que permite crear animaciones suaves y de alto rendimiento en aplicaciones web.",
+  "release": "Se unió en abril de 2018",
+  "icon": "framermotion",
+  "feed": false,
+  "lang": "es"
+}

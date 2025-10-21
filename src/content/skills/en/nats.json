@@ -1,0 +1,8 @@
+{
+  "skill": "NATS",
+  "description": "A high-performance messaging system designed for cloud-native applications, enabling communication between distributed services.",
+  "release": "Joined in June 2016",
+  "icon": "nats",
+  "feed": false,
+  "lang": "en"
+}

@@ -1,0 +1,8 @@
+{
+  "skill": "PostgreSQL",
+  "description": "PostgreSQL es un potente sistema de base de datos relacional open source.",
+  "release": "Se unió en julio de 1996",
+  "icon": "postgres",
+  "feed": true,
+  "lang": "es"
+}

@@ -1,0 +1,8 @@
+{
+  "skill": "Spring Boot",
+  "description": "A tool that simplifies Spring application setup and development by providing a fast, minimalist approach to configuration.",
+  "release": "Joined in April 2014",
+  "icon": "spring_boot",
+  "feed": true,
+  "lang": "en"
+}

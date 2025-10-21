@@ -21,6 +21,7 @@ const skill = defineCollection({
     description: z.string(),
     release: z.string(),
     icon: z.string(),
+    feed: z.boolean().default(false),
     lang: z.enum(["en", "es"]),
   }),
 });

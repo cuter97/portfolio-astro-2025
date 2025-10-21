@@ -1,0 +1,8 @@
+{
+  "skill": "Git",
+  "description": "Un sistema de control de versiones distribuido que rastrea cambios en el código fuente durante el desarrollo de software.",
+  "release": "Lanzado en 2005",
+  "icon": "git",
+  "feed": true,
+  "lang": "es"
+}

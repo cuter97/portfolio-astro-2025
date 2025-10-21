@@ -1,0 +1,8 @@
+{
+  "skill": "SASS",
+  "description": "SASS es un preprocesador de lenguaje de scripting que se interpreta o compila en Cascading Style Sheets (CSS), agregando características como variables, reglas anidadas y mixins.",
+  "release": "Se unió en 2006",
+  "icon": "sass",
+  "feed": false,
+  "lang": "es"
+}

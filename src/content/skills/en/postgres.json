@@ -1,0 +1,8 @@
+{
+  "skill": "PostgreSQL",
+  "description": "PostgreSQL is a powerful, open source object-relational database system.",
+  "release": "Joined July 1996",
+  "icon": "postgres",
+  "feed": true,
+  "lang": "en"
+}

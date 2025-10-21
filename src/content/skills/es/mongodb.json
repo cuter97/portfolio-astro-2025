@@ -1,0 +1,8 @@
+{
+  "skill": "MongoDB",
+  "description": "MongoDB es un programa de base de datos orientado a documentos en plataformas cruzadas. Clasificado como un programa de base de datos NoSQL, MongoDB utiliza documentos JSON-like con esquemas opcionales.",
+  "release": "Se unió en febrero de 2009",
+  "icon": "mongodb",
+  "feed": true,
+  "lang": "es"
+}

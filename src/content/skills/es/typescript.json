@@ -1,0 +1,8 @@
+{
+  "skill": "Typescript",
+  "description": "Typescript es un superconjunto de JavaScript que agrega tipado estático, mejorando la productividad y la calidad del código de los desarrolladores.",
+  "release": "Se unió en octubre de 2012",
+  "icon": "typescript",
+  "feed": true,
+  "lang": "es"
+}

@@ -1,0 +1,8 @@
+{
+  "skill": "Spring Framework",
+  "description": "The core of the Spring ecosystem, providing an Inversion of Control (IoC) container and tools for building enterprise-grade Java applications.",
+  "release": "Joined in October 2002",
+  "icon": "spring_framework",
+  "feed": true,
+  "lang": "en"
+}

@@ -1,0 +1,8 @@
+{
+  "skill": "Java",
+  "description": "A high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible.",
+  "release": "Joined in January 1996",
+  "icon": "java",
+  "feed": true,
+  "lang": "en"
+}
