@@ -47,7 +47,7 @@ export const NavBlog = ({ headings, title = 'On this page' }: Props) => {
   return (
     <>
       {/* Mobile: Colapsable */}
-      <div className="lg:hidden w-full mb-6">
+      <div className="xl:hidden w-full mb-6">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center justify-between w-full p-4 bg-muted-foreground/10 rounded-md hover:bg-muted-foreground/15 transition-colors"
@@ -91,7 +91,7 @@ export const NavBlog = ({ headings, title = 'On this page' }: Props) => {
       </div>
 
       {/* Desktop: Sticky sidebar */}
-      <nav className="hidden lg:block bg-muted-foreground/5 border-dashed hover:border-terciary/30 border-2 rounded-md space-y-2 sticky top-24 overflow-y-auto h-fit py-4 mb-6 px-10 mx-10">
+      <nav className="hidden xl:block bg-muted-foreground/5 border-dashed hover:border-terciary/30 border-2 rounded-md space-y-2 sticky top-24 overflow-y-auto max-h-[calc(100vh-7rem)] py-4 mb-6 px-10 mx-10 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-muted-foreground/5 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-terciary/50 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb:hover]:bg-terciary">
         <h4 className="font-semibold text-lg">{title}</h4>
         <ul className="space-y-2">
           {headings.map((heading) => {
@@ -101,6 +101,7 @@ export const NavBlog = ({ headings, title = 'On this page' }: Props) => {
               <li className="text-sm" key={heading.slug}>
                 <a
                   href={`#${heading.slug}`}
+                  onClick={handleLinkClick}
                   className={`transition-colors ${isActive ? 'text-terciary' : 'hover:text-terciary'}`}
                 >
                   {heading.depth === 2 ? (

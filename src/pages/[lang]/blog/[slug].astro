@@ -36,9 +36,9 @@ const { Content, headings } = await render(blog);
   <article
     transition:name="transition"
     transition:animate="fade"
-    class="flex max-w-7xl mx-auto gap-6 px-4 pb-12 lg:px-0"
+    class="flex max-w-7xl mx-auto gap-6 pb-12 lg:px-0"
   >
-    <div class="blog max-w-4xl px-4">
+    <div class="blog max-w-4xl mx-auto px-4">
       <a
         href={`/${blog.id.split("/")[0]}/blog`}
         class="button mb-6"
@@ -73,7 +73,7 @@ const { Content, headings } = await render(blog);
       <p class="text-sm lg:text-base text-muted-foreground mb-4">
         {blog.data.description}
       </p>
-      <div class="block lg:hidden flex-shrink-0">
+      <div class="block xl:hidden flex-shrink-0">
         <NavBlog client:only="react" headings={headings} title={t("blog.onThisPage")} />
       </div>
       <Content />
@@ -86,7 +86,7 @@ const { Content, headings } = await render(blog);
         {t("buttons.backToTop")}
       </button>
     </div>
-    <div class="hidden lg:block">
+    <div class="hidden xl:block">
       <NavBlog client:only="react" headings={headings} title={t("blog.onThisPage")} />
     </div>
   </article>

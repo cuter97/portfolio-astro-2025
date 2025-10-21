@@ -1,5 +1,5 @@
 .blog {
-  @apply dark:text-muted-foreground text-foreground;
+  @apply dark:text-muted-foreground text-foreground container;
 
   .button {
     @apply cursor-pointer inline-flex items-center gap-2 px-4 py-2 mt-12 bg-muted-foreground/10 hover:bg-foreground hover:text-background text-foreground rounded-full text-sm font-medium transition-colors;
@@ -44,7 +44,11 @@
   }
 
   pre {
-    @apply p-8 rounded-md my-4;
+    @apply p-8 rounded-md my-4 overflow-x-auto max-w-full;
+  }
+
+  pre code {
+    @apply block text-sm lg:text-base;
   }
 
   hr {

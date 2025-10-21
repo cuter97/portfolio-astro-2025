@@ -36,7 +36,7 @@ const { filiteredBlogs } = Astro.props;
   <div
     transition:name="transition"
     transition:animate="fade"
-    class="h-screen max-w-4xl mx-auto space-y-8 px-4"
+    class="pb-16 max-w-4xl mx-auto space-y-8 px-4"
   >
     <a
       href={`/${currentLang}/`}
@@ -46,7 +46,7 @@ const { filiteredBlogs } = Astro.props;
       {t("buttons.home")}
     </a>
     <h1 class="text-3xl font-titan-one mb-6">{t("blog.title")}</h1>
-    <div class="space-y-4">
+    <div class="space-y-6">
       {
         filiteredBlogs.map((blog) => (
           <article class="flex flex-col space-y-2 bg-muted-foreground/10 p-4 rounded-md border-1">
