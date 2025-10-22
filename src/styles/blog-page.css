@@ -58,4 +58,63 @@
   blockquote {
     @apply border-l-4 border-terciary pl-2 mt-3 mb-6;
   }
+
+  table {
+    @apply w-full border-collapse text-sm my-6 rounded-lg overflow-hidden;
+  }
+
+  @media (max-width: 768px) {
+    table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+  }
+
+  /* Encabezado */
+  thead {
+    @apply bg-muted/50 dark:bg-muted/30;
+  }
+
+  /* Celdas de encabezado */
+  th {
+    @apply text-left font-semibold px-4 py-2 border-b border-border;
+  }
+
+  /* Celdas normales */
+  td {
+    @apply px-4 py-2 border-b border-border;
+  }
+
+  /* Hover de fila */
+  tr:hover td {
+    @apply bg-muted/20 dark:bg-muted/10 transition-colors;
+  }
+
+  /* Caption opcional */
+  table caption {
+    @apply text-sm text-muted-foreground mt-2;
+  }
+
+  /* Scroll en mobile: agregar sombreado para dar contexto */
+  table::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  table::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  table::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  /* Ajustes de tipografía y espaciado en pantallas pequeñas */
+  @media (max-width: 640px) {
+
+    th,
+    td {
+      @apply px-3 py-2 text-xs;
+    }
+  }
 }

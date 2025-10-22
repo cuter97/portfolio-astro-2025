@@ -8,6 +8,7 @@ import { useTranslation } from "@/lib/utils";
 import type { lenguages } from "@/i18n/ui";
 import type { GetStaticPaths } from "astro";
 import { ChevronLeft, ChevronUp } from "lucide-react";
+import FormatterDate from "@/components/common/FormatterDate.astro";
 
 export const prerender = true;
 
@@ -64,7 +65,7 @@ const { Content, headings } = await render(blog);
           }
         </span>
         <span class="text-base text-muted-foreground">
-          {blog.data.date}
+          <FormatterDate date={blog.data.date} />
         </span>
       </div>
       <h1>

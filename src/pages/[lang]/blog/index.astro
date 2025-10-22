@@ -7,6 +7,7 @@ import { useTranslation } from "@/lib/utils";
 import { ChevronLeft } from "lucide-react";
 import type { GetStaticPaths } from "astro";
 import type { lenguages } from "@/i18n/ui";
+import FormatterDate from "@/components/common/FormatterDate.astro";
 
 export const prerender = true;
 const currentLang = Astro.currentLocale || "en";
@@ -65,7 +66,7 @@ const { filiteredBlogs } = Astro.props;
             </a>
             <p class="text-muted-foreground">{blog.data.description}</p>
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center pt-4 lg:space-y-0 space-y-4">
-              <span>{blog.data.date}</span>
+              <FormatterDate date={blog.data.date} />
               <CustomLink
                 href={`/${currentLang}/blog/${blog.id.split("/")[1]}`}
                 variant="default"

@@ -77,7 +77,16 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    date: z.string(),
+    date: z.string().transform((str) => {
+      // Detecta formato DD/MM/YYYY o DD-MM-YYYY
+      const match = str.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+      if (match) {
+        const [_, day, month, year] = match;
+        return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+      }
+      // Si no coincide, intenta parsearlo como venga
+      return new Date(str);
+    }),
     tags: z.array(z.enum(["article", "update", "project", "news"])),
     lang: z.enum(["en", "es"]),
   }),

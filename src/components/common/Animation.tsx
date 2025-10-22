@@ -41,39 +41,15 @@ export const Animation = () => {
     };
   }, []);
 
-  // Función para animación de salida (si necesitas triggearla)
-  const handleExit = () => {
-    const layer1 = layer1Ref.current;
-    const layer2 = layer2Ref.current;
-
-    if (!layer1 || !layer2) return;
-
-    const tl = gsap.timeline();
-
-    tl.to(layer1, {
-      x: '100%',
-      width: '100%',
-      duration: 0.6,
-      ease: 'power2.inOut',
-      delay: 0.2,
-    })
-      .to(layer2, {
-        x: '100%',
-        width: '100%',
-        duration: 0.6,
-        ease: 'power2.inOut',
-      }, '-=0.4');
-  };
-
   return (
     <div>
       <div
         ref={layer1Ref}
-        className="fixed top-0 bottom-0 right-full w-screen h-screen z-30 bg-popover"
+        className="fixed top-0 bottom-0 right-full w-screen h-screen z-50 bg-popover"
       />
       <div
         ref={layer2Ref}
-        className="fixed top-0 bottom-0 right-full w-screen h-screen z-20 bg-orange-700"
+        className="fixed top-0 bottom-0 right-full w-screen h-screen z-400 bg-orange-700"
       />
     </div>
   );
