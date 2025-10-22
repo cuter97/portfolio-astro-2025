@@ -9,21 +9,73 @@ interface Props {
   filteredSkills?: CollectionEntry<"skill">[];
 }
 
-const currentLang = Astro.currentLocale || 'en';
+const currentLang = Astro.currentLocale || "en";
 const t = useTranslation(currentLang as keyof typeof lenguages);
 const { filteredProjects, filteredSkills } = Astro.props as Props;
 ---
 
 <section id="projects" class="space-y-4 scroll-mt-24">
-  <h3 class="text-3xl font-titan-one uppercase">{t("index.projects.title")}</h3>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+  <h3 class="text-3xl font-titan-one uppercase">
+    {t("index.projects.title")}
+  </h3>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 projects-grid">
     {
       filteredProjects?.map((proj) => {
         const projSkills = filteredSkills?.filter((skill) =>
           proj.data.tags.some((tag) => skill.id.endsWith(tag.id))
         );
-        return <CardProject client:load info={proj} skills={projSkills} currentLang={currentLang as keyof typeof lenguages} />
+        return (
+          <div class="project-card-wrapper">
+            <CardProject
+              client:load
+              info={proj}
+              skills={projSkills}
+              currentLang={currentLang as keyof typeof lenguages}
+            />
+          </div>
+        );
       })
     }
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Esperar a que los componentes React se monten
+  setTimeout(() => {
+    const projectCards = document.querySelectorAll(".project-card-wrapper");
+
+    projectCards.forEach((card, index) => {
+      // Estado inicial: rotadas en 3D y transparentes
+      gsap.set(card, {
+        opacity: 0,
+        rotationY: -90,
+        transformPerspective: 1000,
+        transformOrigin: "center center",
+      });
+
+      // Animación de entrada tipo "flip"
+      gsap.to(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+        },
+        opacity: 1,
+        rotationY: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: index * 0.15,
+      });
+    });
+  }, 100);
+</script>
+
+<style>
+  .project-card-wrapper {
+    transform-style: preserve-3d;
+  }
+</style>

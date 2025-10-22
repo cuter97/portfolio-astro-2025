@@ -14,8 +14,10 @@ const { skills } = Astro.props as Props;
 ---
 
 <section id="skills" class="space-y-4 scroll-mt-24">
-  <h3 class="text-3xl font-titan-one uppercase">{t("index.skills")}</h3>
-  <div class="grid grid-cols-3 md:grid-cols-6 gap-2 lg:gap-4">
+  <h3 class="text-3xl font-titan-one uppercase">
+    {t("index.skills")}
+  </h3>
+  <div class="grid grid-cols-3 md:grid-cols-6 gap-2 lg:gap-4 skills-grid overflow-hidden">
     {
       skills
         ?.filter((skill) => skill.data.feed)
@@ -23,3 +25,57 @@ const { skills } = Astro.props as Props;
     }
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const cards = document.querySelectorAll(".skill-card");
+
+  // Estado inicial de las cartas (apiladas en el centro del contenedor)
+  gsap.set(cards, {
+    opacity: 0,
+    scale: 0.3,
+    x: 0,
+    y: -100,
+    rotation: 0,
+  });
+
+  // Animación de repartir cartas
+  gsap.to(cards, {
+    scrollTrigger: {
+      trigger: ".skills-grid",
+      start: "top 75%",
+    },
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    y: 0,
+    rotation: () => {
+      return gsap.utils.random(-8, 8);
+    },
+    duration: 0.6,
+    ease: "power2.out",
+    stagger: {
+      amount: 1.2,
+      from: "start",
+      ease: "power1.inOut",
+    },
+    onComplete: function() {
+      gsap.to(this.targets(), {
+        rotation: 0,
+        duration: 0.3,
+        ease: "power2.inOut",
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Prevenir scroll horizontal durante la animación */
+  #skills {
+    overflow-x: hidden;
+  }
+</style>

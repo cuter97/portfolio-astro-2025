@@ -11,10 +11,12 @@ import mdx from '@astrojs/mdx';
 
 import sitemap from '@astrojs/sitemap';
 
+import vercel from '@astrojs/vercel';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  
+
   integrations: [react(), icon(), mdx(), sitemap({
     i18n: {
       defaultLocale: 'es',
@@ -24,7 +26,7 @@ export default defineConfig({
       }
     }
   })],
-  
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],
@@ -34,8 +36,10 @@ export default defineConfig({
   },
 
   site: 'http://localhost:4321',
-  
+
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+
+  adapter: vercel()
 });
