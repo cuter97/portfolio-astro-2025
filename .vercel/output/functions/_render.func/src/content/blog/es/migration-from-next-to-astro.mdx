@@ -1,0 +1,96 @@
+---
+title: "Migrando de Next.js a Astro"
+description: "Por qué decidí migrar de Next.js a Astro y cómo me simplificó el mantenimiento de mi sitio y la actualización de contenido."
+date: 21/10/2025
+tags: ["article", "news"]
+lang: "es"
+---
+
+Durante mucho tiempo usé **Next.js** para mi sitio personal y mi blog. Siempre me gustó trabajar con **React**, así que Next me parecía la opción más natural. Pero con el tiempo empecé a notar algo: mantener un sitio estático con Next era más complicado de lo que debería.
+
+Cada vez que quería agregar un nuevo post o actualizar información, tenía que tocar el código, regenerar todo y esperar el build. Y como no tengo un CMS ni una base de datos conectada, todo era contenido estático. En teoría eso debería ser lo más simple del mundo… pero en Next no lo sentía así.
+
+---
+
+## Next.js es genial, pero no para todo
+
+No hay duda: Next.js es una herramienta poderosa. Si estás construyendo una app compleja, un panel administrativo o algo que necesite SSR, API routes y autenticación, es una joya.
+
+El problema es cuando tu proyecto **no necesita todo eso**.  
+Un simple blog, un portfolio o un sitio con contenido estático termina arrastrando mucho más peso del necesario.
+
+Algunas cosas que me frustraban:
+
+- El **bundle era demasiado grande** incluso para páginas simples.
+- Agregar contenido requería configurar **contentlayer** o alguna otra solución extra.
+- Cada nuevo post implicaba modificar rutas o hacer rebuild completo.
+- La configuración inicial era cada vez más compleja.
+
+Llega un punto donde sentís que estás usando un **framework demasiado grande para un problema chico**.  
+Como usar un martillo neumático para clavar una chinche.
+
+---
+
+## Y ahí apareció Astro
+
+Un día, sin muchas expectativas, empecé a probar **Astro**.  
+Y fue un cambio total.
+
+Lo primero que me sorprendió fue **lo fácil que es crear cosas**.  
+Astro tiene una filosofía muy distinta: _“Content-first”_.  
+Está pensado para sitios que priorizan el contenido, no las apps.
+
+Pude crear un blog completamente funcional en minutos, sin instalar nada extra.  
+No necesité configurar contentlayer, ni preocuparme por el routing. Simplemente creás un archivo Markdown en `src/content`, y Astro se encarga del resto: genera las rutas, te da tipado automático y hasta valida los metadatos.
+
+Además, el **rendimiento es increíble**. Astro genera HTML estático por defecto y no carga nada de JavaScript a menos que vos lo pidas. Eso significa que tu sitio es rápido, liviano y eficiente.
+
+---
+
+## Sigo usando React (pero como una isla)
+
+Algo que me encantó es que no tuve que dejar atrás React.  
+Astro me permite usarlo **solo cuando realmente lo necesito**, como una “isla” dentro del sitio.
+
+Por ejemplo, para un componente interactivo o un efecto visual puntual, puedo seguir usando mis componentes React de siempre, con todo su ecosistema (hooks, props, etc.), pero sin que afecten el rendimiento general del sitio.
+
+No tuve que rehacer todo en TypeScript “vanilla”, ni cambiar mi forma de pensar en componentes.  
+Astro simplemente me da la libertad de elegir **cuándo y dónde** usar React.
+
+---
+
+## Comparando la experiencia
+
+| Aspecto              | Next.js                                  | Astro                               |
+| -------------------- | ---------------------------------------- | ----------------------------------- |
+| Tamaño del bundle    | Alto, incluso en sitios simples          | Mínimo por defecto                  |
+| Manejo de contenido  | Requiere contentlayer u otra herramienta | Integrado con `content collections` |
+| Curva de aprendizaje | Alta para sitios estáticos               | Muy baja                            |
+| Performance          | Buena, pero con más JS                   | Excelente, 0 JS por defecto         |
+| React                | Totalmente dependiente                   | Opcional, solo donde se necesita    |
+
+---
+
+## Mi flujo actual
+
+Hoy en día, escribir un nuevo post en mi blog es literalmente **crear un archivo Markdown**.  
+Astro se encarga de todo: rutas, layouts, tipado y renderizado.
+
+Uso **TailwindCSS** para los estilos y **React** para los componentes interactivos (como menús o efectos visuales).  
+Todo lo demás es contenido estático, limpio y veloz.
+
+No tengo que preocuparme por el bundle, ni por dependencias innecesarias.  
+Simplemente escribo y publico.
+
+---
+
+## Conclusión
+
+Migrar a Astro me simplificó muchísimo las cosas.  
+Ahora, si quiero **agregar nueva información o actualizar algo**, lo puedo hacer sin complicaciones, sin configurar herramientas extra o tocar demasiadas partes del proyecto.
+
+Antes, con Next, modificar algo tan simple como un texto o una sección implicaba más pasos de los necesarios.  
+Con Astro, todo se siente más directo: abrís un archivo, lo cambiás, y listo.
+
+No fue un cambio solo de tecnología, sino de **flujo de trabajo**.  
+Ahora mantener mi sitio es mucho más ágil, liviano y, sobre todo, práctico.

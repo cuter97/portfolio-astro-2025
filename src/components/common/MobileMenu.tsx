@@ -28,13 +28,20 @@ export function MobileMenu({ locale, currentPath, children, menuItems }: MobileM
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
       document.body.style.overflow = "hidden";
+      // Fijar la altura al abrir el menú
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
     } else {
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     }
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     };
   }, [isOpen]);
 
@@ -53,18 +60,19 @@ export function MobileMenu({ locale, currentPath, children, menuItems }: MobileM
         <Menu className="h-6 w-6" aria-hidden="true" />
       </Button>
 
-      {/* Menu Panel - z-[80] para estar sobre todo */}
+      {/* Menu Panel - Usando dvh (dynamic viewport height) */}
       <div
         id="mobile-menu"
-        className={`fixed top-0 right-0 h-screen w-full bg-primary-foreground border-l border-terciary z-[80] transform transition-transform duration-300 ease-in-out lg:hidden shadow-2xl ${isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-0 right-0 h-[100dvh] w-full bg-primary-foreground border-l border-terciary z-[80] transform transition-transform duration-300 ease-in-out lg:hidden shadow-2xl ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation menu"
       >
         <div className="flex flex-col h-full">
           {/* Header con botón de cerrar */}
-          <div className="flex items-center justify-between pt-6 px-6 pb-6 border-b border-terciary border-dashed">
+          <div className="flex items-center justify-between pt-6 px-6 pb-6 border-b border-terciary border-dashed flex-shrink-0">
             <h2 className="text-lg font-semibold">Menu</h2>
             <Button
               variant="ghost"
@@ -97,8 +105,8 @@ export function MobileMenu({ locale, currentPath, children, menuItems }: MobileM
             ))}
           </nav>
 
-          {/* Bottom Actions */}
-          <div className="px-6 py-4 border-t border-terciary border-dashed">
+          {/* Bottom Actions - Siempre visible al final */}
+          <div className="px-6 py-4 border-t border-terciary border-dashed flex-shrink-0">
             <div className="flex items-center justify-between">
               <ModeToggle aria-label="Toggle theme">
                 {children}
