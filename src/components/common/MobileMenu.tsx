@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { ModeToggle } from "@/components/common/ModeToggle";
@@ -19,31 +19,48 @@ interface MobileMenuProps {
 
 export function MobileMenu({ locale, currentPath, children, menuItems }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const scrollPosition = useRef(0);
 
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
-    };
+  const handleEscape = (e: KeyboardEvent) => {
+    if (e.key === "Escape") setIsOpen(false);
+  };
 
-    if (isOpen) {
-      document.addEventListener("keydown", handleEscape);
-      document.body.style.overflow = "hidden";
-      // Fijar la altura al abrir el menú
-      document.body.style.position = "fixed";
-      document.body.style.width = "100%";
-    } else {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-    }
+  if (isOpen) {
+    // Guardar scroll actual
+    scrollPosition.current = window.scrollY;
+    
+    document.addEventListener("keydown", handleEscape);
+    
+    // Prevenir scroll manteniendo posición visual
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollPosition.current}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+  } else {
+    // Restaurar estilos
+    const currentScrollY = scrollPosition.current;
+    
+    document.body.style.overflow = "";
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    
+    // Restaurar scroll SIN animación
+    window.scrollTo({
+      top: currentScrollY,
+      behavior: 'instant' as ScrollBehavior // Sin animación suave
+    });
+  }
 
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.width = "";
-    };
-  }, [isOpen]);
+  return () => {
+    document.removeEventListener("keydown", handleEscape);
+  };
+}, [isOpen]);
 
   return (
     <>
@@ -63,9 +80,8 @@ export function MobileMenu({ locale, currentPath, children, menuItems }: MobileM
       {/* Menu Panel - Usando dvh (dynamic viewport height) */}
       <div
         id="mobile-menu"
-        className={`fixed top-0 right-0 h-[100dvh] w-full bg-primary-foreground border-l border-terciary z-[80] transform transition-transform duration-300 ease-in-out lg:hidden shadow-2xl ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-[100dvh] w-full bg-primary-foreground border-l border-terciary z-[80] transform transition-transform duration-300 ease-in-out lg:hidden shadow-2xl ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation menu"

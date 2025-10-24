@@ -5,37 +5,23 @@ Un portfolio personal moderno y multilingüe construido con Astro, Reac
 ## 🚀 Características
 
 - ✅ **Multilingüe** - Soporte para español e inglés
-- ✅ **Modo oscuro/claro** - Tema personalizable con 
-persistencia
-- ✅ **Responsive** - Diseño adaptable a todos los 
-dispositivos
-- ✅ **Optimizado para SEO** - Metadatos y estructura 
-optimizada
-- ✅ **Colecciones de contenido** - Gestión de 
-proyectos, experiencias, habilidades y más
-- ✅ **Transiciones de página** - Animaciones suaves 
-entre páginas
-- ✅ **Notificaciones con Sonner** - Sistema de 
-notificaciones elegante
-- ✅ **Blog integrado** - Soporte para artículos en 
-formato MDX
+- ✅ **Modo oscuro/claro** - Tema personalizable con persistencia
+- ✅ **Responsive** - Diseño adaptable a todos los dispositivos
+- ✅ **Optimizado para SEO** - Metadatos y estructura optimizada
+- ✅ **Colecciones de contenido** - Gestión de proyectos, experiencias, habilidades y más
+- ✅ **Transiciones de página** - Animaciones suaves entre páginas
+- ✅ **Notificaciones con Sonner** - Sistema de notificaciones elegante
+- ✅ **Blog integrado** - Soporte para artículos en formato MDX
 
 ## 🛠️ Tecnologías
 
-- [Astro](https://astro.build/) - Framework web para 
-sitios estáticos
-- [React](https://react.dev/) - Biblioteca para 
-interfaces de usuario
-- [Tailwind CSS](https://tailwindcss.com/) - 
-Framework CSS utilitario
-- [TypeScript](https://www.typescriptlang.org/) - 
-JavaScript con tipado estático
-- [GSAP](https://greensock.com/gsap/) - Animaciones 
-avanzadas
-- [Sonner](https://sonner.emilkowal.ski/) - Sistema 
-de notificaciones toast
-- [MDX](https://mdxjs.com/) - Markdown con JSX para 
-contenido enriquecido
+- [Astro](https://astro.build/) - Framework web para sitios estáticos
+- [React](https://react.dev/) - Biblioteca para interfaces de usuario
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitario
+- [TypeScript](https://www.typescriptlang.org/) - JavaScript con tipado estático
+- [GSAP](https://greensock.com/gsap/) - Animaciones avanzadas
+- [Sonner](https://sonner.emilkowal.ski/) - Sistema de notificaciones toast
+- [MDX](https://mdxjs.com/) - Markdown con JSX para contenido enriquecido
 
 ## 📦 Estructura del proyecto
 

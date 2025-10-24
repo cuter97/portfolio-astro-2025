@@ -8,6 +8,7 @@ import CardSkill from "@/components/common/CardSkill.astro";
 import { ChevronLeft, ExternalLink } from "lucide-react";
 import { useTranslation } from "@/lib/utils";
 import type { lenguages } from "@/i18n/ui";
+import CardSkillMobile from "@/components/common/CardSkillMobile.astro";
 
 export const prerender = true;
 export const getStaticPaths = (async () => {
@@ -40,7 +41,7 @@ const { Content } = await render(project);
 ---
 
 <Layout title={project.data.title}>
-  <div class="max-w-7xl mx-auto">
+  <div class="max-w-7xl mx-auto px-4">
     <a
       href={`/${project.id.split("/")[0]}/#projects`}
       class="inline-flex items-center gap-2 px-6 py-2 bg-muted-foreground/10 hover:bg-foreground hover:text-background rounded-full text-sm font-medium transition-colors"
@@ -102,8 +103,13 @@ const { Content } = await render(project);
         <h4 class="text-xl font-bold">
           {t("index.projects.projectSlug.technology")}:
         </h4>
-        <ul class="grid grid-cols-3 gap-2">
+        <!-- Desktop: HoverCard -->
+        <ul class="hidden md:grid grid-cols-3 gap-2">
           {skills?.map((skill) => <CardSkill skill={skill} />)}
+        </ul>
+        <!-- Mobile: Popover -->
+        <ul class="md:hidden grid grid-cols-3 gap-2">
+          {skills?.map((skill) => <CardSkillMobile skill={skill} />)}
         </ul>
       </div>
     </div>

@@ -55,13 +55,20 @@ export const CardProject = ({ info, skills, currentLang }: Props) => {
         </ul>
       </CardContent>
       <CardFooter className='flex items-center justify-between mt-auto'>
-        <div className='flex items-center gap-2'>
+        <div className='hidden md:flex items-center gap-2'>
           {skills?.map((skill) => (
             <CustomHoverCard key={skill.id} skill={skill}>
               <Badge className='font-semibold cursor-help'>
                 {skill.data.skill}
               </Badge>
             </CustomHoverCard>
+          ))}
+        </div>
+        <div className='md:hidden flex items-center gap-2'>
+          {skills?.map((skill) => (
+            <Badge key={skill.id} className='font-semibold cursor-help'>
+              {skill.data.skill}
+            </Badge>
           ))}
         </div>
         <Button variant="secondary" size="sm" asChild>
