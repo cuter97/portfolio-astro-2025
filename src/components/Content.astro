@@ -4,6 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import Skills from "./sections/Skills.astro";
 import Experience from "./sections/Experience.astro";
 import Education from "./sections/Education.astro";
+import Hello from "./sections/Hello.astro";
 
 interface Props {
   className?: string;
@@ -29,6 +30,7 @@ const {
   transition:animate="fade"
   class={`${className} px-4 space-y-20 pb-20`}
 >
+  <Hello />
   <Experience filterExperience={experience} />
   <Projects filteredProjects={projects} filteredSkills={skills} />
   <Skills skills={skills} />

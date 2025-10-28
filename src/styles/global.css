@@ -79,9 +79,11 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-terciary: var(--terciary);
+  --color-cream: var(--cream);
 }
 
 :root {
+  --cream: #121212;
   --terciary: oklch(64.6% 0.222 41.116);
   --radius: 0.625rem;
   --background: oklch(0.9826 0.0068 97.36);
@@ -118,6 +120,7 @@
 }
 
 .dark {
+  --cream: #D1D1CF;
   --terciary: oklch(64.6% 0.222 41.116);
   --background: #121212;
   --foreground: oklch(0.985 0 0);

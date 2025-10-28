@@ -1,0 +1,100 @@
+---
+import { Briefcase, Code2, GraduationCap, FolderKanban } from "lucide-react";
+
+const sections = [
+  { id: "experience", label: "experience", icon: Briefcase },
+  { id: "projects", label: "projects", icon: FolderKanban },
+  { id: "skills", label: "skills", icon: Code2 },
+  { id: "education", label: "education", icon: GraduationCap },
+];
+---
+
+<aside
+  class="hidden relative lg:flex flex-col space-y-1 px-8 py-4 border-2 border-dashed border-foreground/30 hover:border-terciary/50 bg-accent/40 rounded-md mt-4"
+>
+  <span class="bg-accent/90 sidebar-title font-space-grotesk rounded-md"
+    >MENU</span
+  >
+
+  {
+    sections.map(({ id, label, icon: Icon }) => (
+      <a
+        href={`#${id}`}
+        class="sidebar-link group flex items-center gap-3 text-sm transition-all duration-200 px-6 py-2.5 rounded-md -mx-2 hover:bg-foreground/5"
+        data-section={id}
+      >
+        <Icon className="w-4 h-4 transition-opacity" strokeWidth={2} />
+        <span class="capitalize">{label}</span>
+      </a>
+    ))
+  }
+</aside>
+
+<script>
+  function initSectionObserver() {
+    const links = document.querySelectorAll<HTMLAnchorElement>("aside a");
+
+    if (links.length === 0) return;
+
+    const sections = Array.from(links)
+      .map((link) => {
+        const id = link.getAttribute("data-section");
+        return id ? document.getElementById(id) : null;
+      })
+      .filter(Boolean);
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const link = document.querySelector<HTMLAnchorElement>(
+            `aside a[data-section="${entry.target.id}"]`
+          );
+          if (link) {
+            if (entry.isIntersecting) {
+              links.forEach((l) => l.classList.remove("active"));
+              link.classList.add("active");
+            }
+          }
+        });
+      },
+      { threshold: 0.5, rootMargin: "-10% 0px -10% 0px" }
+    );
+
+    sections.forEach((sec) => sec && observer.observe(sec));
+
+    // Limpiar observer cuando se cambie de página
+    document.addEventListener("astro:before-preparation", () => {
+      observer.disconnect();
+    });
+  }
+
+  // Ejecutar después de cada navegación de Astro
+  document.addEventListener("astro:page-load", initSectionObserver);
+</script>
+
+<style>
+  .sidebar-link {
+    color: var(--color-foreground, #444);
+  }
+
+  .sidebar-link.active {
+    color: var(--color-terciary, #2563eb);
+    background: var(--color-background, rgba(0, 0, 0, 0.05));
+  }
+
+  .sidebar-link.active:hover {
+    background: var(--color-background, rgba(0, 0, 0, 0.05));
+  }
+
+  .sidebar-title {
+    position: absolute;
+    top: -0.7rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 0.75rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+</style>
