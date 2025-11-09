@@ -6,7 +6,7 @@ type Theme = "theme-light" | "dark" | "system";
 type Props = { children?: React.ReactNode };
 
 export function ModeToggle({ children }: Props) {
-  // Leer el tema inicial sincrónicamente
+  // Read the initial topic synchronously
   const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof window === 'undefined') return "system";
 
@@ -16,19 +16,19 @@ export function ModeToggle({ children }: Props) {
         return stored as Theme;
       }
     } catch (e) {
-      // Si falla, usar system
+      // If it fails, use system
     }
     return "system";
   });
 
   const [mounted, setMounted] = useState(false);
 
-  // Marcar que el componente está montado
+  // Mark that the component is mounted
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // cuando cambie `theme`, aplicamos la clase y guardamos en localStorage
+  // When the `theme` changes, we apply the class and save it to localStorage.
   useEffect(() => {
     const isDark =
       theme === "dark" ||
@@ -55,7 +55,7 @@ export function ModeToggle({ children }: Props) {
     applyTheme();
   };
 
-  // Evitar hydration mismatch mostrando el botón sin handler hasta que esté montado
+  // Avoid hydration mismatch by showing the button without a handler until it is mounted
   if (!mounted) {
     return (
       <Button variant="ghost" size="icon" className="mx-2" disabled>

@@ -24,7 +24,7 @@ export const CardProject = ({ info, skills, currentLang }: Props) => {
           {
             info.data.demoLink ?
               <CustomTooltip description={t("tooltips.viewWebsite")}>
-                <Button variant="link" size="link" asChild>
+                <Button variant="link" size="link" aria-label={t("tooltips.viewWebsite")} asChild >
                   <a href={info.data.demoLink} target="_blank" rel="noopener noreferrer">
                     {info.data.title}
                     <ExternalLink size={18} className='text-terciary' />
@@ -38,7 +38,7 @@ export const CardProject = ({ info, skills, currentLang }: Props) => {
         {
           info.data.githubLink &&
           <CustomTooltip description={t("tooltips.viewCode")}>
-            <Button variant={"ghost"} size={'icon'} asChild>
+            <Button variant={"ghost"} size={'icon'} aria-label={t("tooltips.viewCode")} asChild>
               <a href={info.data.githubLink} target="_blank" rel="noopener noreferrer">
                 <Github className='w-6 h-6 text-terciary' />
               </a>

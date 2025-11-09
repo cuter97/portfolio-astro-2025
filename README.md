@@ -1,252 +1,335 @@
-# Portfolio Astro
+# 🌐 Portfolio Astro
 
-Un portfolio personal moderno y multilingüe construido con Astro, React, Tailwind CSS y Shadcn/ui.
+A **modern, multilingual, and SEO-optimized personal portfolio**, built with **Astro**, **React**, **Tailwind CSS**, and **Shadcn/ui**.  
+Includes RSS, `robots.txt`, a custom 404 page, and a commercial license that allows resale.
 
-## 🚀 Características
+---
 
-- ✅ **Multilingüe** - Soporte para español e inglés
-- ✅ **Modo oscuro/claro** - Tema personalizable con persistencia
-- ✅ **Responsive** - Diseño adaptable a todos los dispositivos
-- ✅ **Optimizado para SEO** - Metadatos y estructura optimizada
-- ✅ **Colecciones de contenido** - Gestión de proyectos, experiencias, habilidades y más
-- ✅ **Transiciones de página** - Animaciones suaves entre páginas
-- ✅ **Notificaciones con Sonner** - Sistema de notificaciones elegante
-- ✅ **Blog integrado** - Soporte para artículos en formato MDX
+## 🚀 Features
 
-## 🛠️ Tecnologías
+- ✅ **Multilingual** – Support for Spanish and English
+- ✅ **Dark/Light mode** – Customizable theme with persistence
+- ✅ **Responsive** – Adaptable design for all devices
+- ✅ **SEO optimized** – Metadata, optimized structure, `robots.txt`, and `sitemap.xml`
+- ✅ **Content collections** – Management of projects, experiences, skills, and more
+- ✅ **Page transitions** – Smooth animations between pages
+- ✅ **Integrated blog** – Support for articles in MDX format
+- ✅ **RSS Feed (`rss.xml.ts`)** – Automatic RSS feed generation for the blog
+- ✅ **Custom 404 page** – Design consistent with the rest of the site
+- ✅ **Commercial license** – Code and design can be sold under specific terms
 
-- [Astro](https://astro.build/) - Framework web para sitios estáticos
-- [React](https://react.dev/) - Biblioteca para interfaces de usuario
-- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utilitario
-- [TypeScript](https://www.typescriptlang.org/) - JavaScript con tipado estático
-- [GSAP](https://greensock.com/gsap/) - Animaciones avanzadas
-- [Sonner](https://sonner.emilkowal.ski/) - Sistema de notificaciones toast
-- [MDX](https://mdxjs.com/) - Markdown con JSX para contenido enriquecido
+---
 
-## 📦 Estructura del proyecto
+## 🛠️ Technologies
 
+- [Astro](https://astro.build/) – Web framework for static sites
+- [React](https://react.dev/) – Library for user interfaces
+- [TypeScript](https://www.typescriptlang.org/) – JavaScript with static typing
+- [Shadcn/ui](https://ui.shadcn.com/) – User interface components
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework
+- [GSAP](https://greensock.com/gsap/) – Advanced animations
+- [Sonner](https://sonner.emilkowal.ski/) – Toast notification system
+- [MDX](https://mdxjs.com/) – Markdown with JSX for enriched content
+
+---
+
+## 📦 Project structure
 ```
 /
-├── public/                 # Archivos estáticos
-│   ├── fonts/              # Fuentes personalizadas
-│   └── pdf/                # Archivos PDF (currículum)
+├── public/                 # Static files
+│   ├── fonts/              # Custom fonts
+│   └── pdf/                # PDF files (resume)
 ├── src/
-│   ├── assets/             # Imágenes y recursos
-│   ├── components/         # Componentes reutilizables
-│   │   ├── common/         # Componentes comunes
-│   │   ├── sections/       # Secciones de página
-│   │   └── ui/             # Componentes de interfaz
-│   ├── content/            # Contenido estructurado
-│   │   ├── blog/           # Artículos del blog (archivos MDX)
-│   │   ├── certifications/ # Certificaciones (archivos JSON)
-│   │   ├── experiences/    # Experiencia laboral (archivos JSON)
-│   │   ├── projects/       # Proyectos (archivos MDX)
-│   │   ├── skills/         # Habilidades (archivos JSON)
-│   │   └── university/     # Educación (archivos JSON)
-│   ├── i18n/               # Traducciones
-│   ├── icons/              # Iconos SVG
-│   ├── layouts/            # Plantillas de página
-│   ├── lib/                # Utilidades y constantes
-│   │   ├── const.ts        # Enlaces y datos constantes
-│   │   └── utils.ts        # Funciones de utilidad
-│   ├── pages/              # Páginas del sitio
-│   ├── scripts/            # Scripts del cliente
-│   └── styles/             # Estilos CSS
-│   └── content.config.ts   # Configuración de contenido
-└── package.json            # Dependencias y scripts
+│   ├── assets/             # Images and resources
+│   ├── components/         # Reusable components
+│   │   ├── common/         # Common components
+│   │   ├── sections/       # Page sections
+│   │   └── ui/             # Interface components
+│   ├── content/            # Structured content
+│   │   ├── blog/           # Blog articles (MDX files)
+│   │   ├── certifications/ # Certifications (JSON files)
+│   │   ├── experiences/    # Work experience (JSON files)
+│   │   ├── projects/       # Projects (MDX files)
+│   │   ├── skills/         # Skills (JSON files)
+│   │   └── university/     # Education (JSON files)
+│   ├── i18n/               # Translations
+│   ├── icons/              # SVG icons
+│   │   └── skills/         # Icons for skills
+│   ├── layouts/            # Page templates
+│   ├── lib/                # Utilities and constants
+│   │   ├── const.ts        # Links and constant data
+│   │   └── utils.ts        # Utility functions
+│   ├── pages/              # Site pages
+│   ├── scripts/            # Client scripts
+│   └── styles/             # CSS styles
+│   └── content.config.ts   # Content configuration
+└── package.json            # Dependencies and scripts
 ```
-
-
-## 🧩 Gestión de contenido
-
-El proyecto utiliza colecciones de contenido de Astro para gestionar la información. Cada tipo de contenido se define en `src/content.config.ts` y se almacena en la carpeta `src/content/`.
-
-### 📄 Tipos de archivos de contenido
-
-- **JSON**: Utilizado para datos estructurados simples (skills, experiences, certifications, university)
-- **MDX**: Utilizado para contenido enriquecido con formato y componentes (blog, projects)
-
-### ⚙️ Enlaces y constantes globales
-
-El archivo `src/lib/const.ts` contiene las constantes principales utilizadas en todo el proyecto:
-
-```typescript
-export const linkedin = "https://www.linkedin.com/in/agustin-castets"
-export const github = "https://github.com/cuter97"
-export const email = "aguscastets@gmail.com"
-export const drive = "https://drive.google.com/drive/u/0/folders/1hXpdzjBKPjZKnH9BEgujEksY69NROcLn"
-```
-
-Estas constantes se utilizan para mantener centralizados los enlaces y datos importantes que se usan en múltiples lugares del proyecto.
-
-### ⚠️ Importante: Correspondencia de nombres de iconos
-
-Para que los iconos se muestren correctamente, **debe existir una correspondencia exacta** entre:
-1. El nombre del archivo SVG en la carpeta `src/icons/`
-2. El valor del campo `icon` en los archivos de skills (`src/content/skills/`)
-3. Los valores en el array `tags` de los proyectos (`src/content/projects/`)
-
-Por ejemplo, si tienes un icono `react.svg` en la carpeta de iconos:
-- En un archivo de skill, debes usar `"icon": "react"`
-- En los tags de un proyecto, debes incluir `"tags": ["react", ...]`
-
-Si los nombres no coinciden exactamente, los iconos no se mostrarán correctamente.
-
-### Estructura de contenido
-
-#### Proyectos (`projects` - archivos MDX)
-```mdx
 ---
-title: "Nombre del proyecto"
-description: "Descripción del proyecto"
-image: "/ruta/a/imagen.webp"
+
+## 🧩 Content management
+
+The project uses Astro content collections to manage information. Each type of content is defined in `src/content.config.ts` and stored in the `src/content/` folder.
+
+### 📄 Content file types
+
+- **JSON**: Used for simple structured data (skills, experiences, certifications, university)
+- **MDX**: Used for enriched content with formatting and components (blog, projects)
+
+### ⚙️ Global links and constants
+
+The `src/lib/const.ts` file contains the main constants used throughout the project:
+```typescript
+export const linkedin = "";
+export const github = "";
+export const email = "";
+export const drive = "";
+export const name = "";
+```
+
+These constants are used to keep centralized important links and data used in multiple places throughout the project.
+
+### ⚠️ Important: Icon name correspondence
+
+For icons to display correctly, **there must be an exact match** between:
+
+1. The SVG file name in the `src/icons/skills/` folder
+2. The value of the `icon` field in the skills files (`src/content/skills/`)
+3. The values in the `tags` array of projects (`src/content/projects/`)
+
+For example, if you have a `react.svg` icon in the icons folder:
+
+- In a skill file, you must use `"icon": "react"`
+- In a project's tags, you must include `"tags": ["react", ...]`
+
+If the names don't match exactly, the icons won't display correctly.
+
+### ⚙️ Content structure
+
+#### Projects (`projects` - MDX files)
+```typescript
+---
+title: "Project name"
+description: "Project description"
+image: "/path/to/image.webp"
 tags: ["react", "typescript", "tailwindcss"]
 links:
-  github: "https://github.com/usuario/proyecto"
-  demo: "https://demo.proyecto.com"
-lang: "es"
+  github: "https://github.com/user/project"
+  demo: "https://demo.project.com"
+lang: "en"
 ---
 
-# Detalles del proyecto
+# Project details
 
-Aquí puedes escribir una descripción detallada del proyecto utilizando Markdown con soporte para componentes JSX.
+Here you can write a detailed description of the project using Markdown with JSX component support.
 
-## Características
+## Features
 
-- Característica 1
-- Característica 2
+- Feature 1
+- Feature 2
 
-<MiComponente prop="valor" />
+<MyComponent prop="value" />
 ```
 
-#### Blog (`blog` - archivos MDX)
-```mdx
+#### Blog (`blog` - MDX files)
+```typescript
 ---
-title: "Título del artículo"
-description: "Descripción breve del artículo"
-publishDate: "2023-06-15"
-image: "/ruta/a/imagen.webp"
-tags: ["desarrollo", "web", "react"]
-lang: "es"
+title: "Article title"
+description: "Brief description of the article"
+publishDate: "2023-06-15" // detects DD/MM/YYYY or DD-MM-YYYY format
+image: "/path/to/image.webp"
+tags: ["development", "web", "react"]
+lang: "en"
 ---
 
-# Contenido del artículo
+# Article content
 
-Aquí puedes escribir el contenido completo del artículo utilizando Markdown con soporte para componentes JSX.
+Here you can write the complete content of the article using Markdown with JSX component support.
 
-## Sección 1
+## Section 1
 
-Texto de la sección...
+Section text...
 
-<MiComponente prop="valor" />
+<MyComponent prop="value" />
 ```
 
-#### Experiencias (`experiences` - archivos JSON)
+#### Experiences (`experiences` - JSON files)
 ```json
 {
-  "title": "Cargo",
-  "company": "Nombre de la empresa",
-  "location": "Ubicación",
+  "title": "Position",
+  "company": "Company name",
+  "location": "Location",
   "dates": {
     "start": "Jul 2022",
     "end": "Present"
   },
-  "summary": "Resumen de la posición",
-  "responsibilities": [
-    "Responsabilidad 1",
-    "Responsabilidad 2"
-  ],
-  "achievements": [
-    "Logro 1",
-    "Logro 2"
-  ],
-  "lang": "es"
+  "summary": "Position summary",
+  "responsibilities": ["Responsibility 1", "Responsibility 2"],
+  "achievements": ["Achievement 1", "Achievement 2"],
+  "lang": "en"
 }
 ```
 
-#### Habilidades (`skills` - archivos JSON)
+#### Skills (`skills` - JSON files)
 ```json
 {
-  "skill": "Nombre de la habilidad",
-  "description": "Descripción de la habilidad",
-  "release": "Información adicional",
-  "icon": "nombre-del-icono",
-  "feed": true, 
-  "lang": "es"
-}
-```
-*El campo `feed` determina si la habilidad se mostrará en la sección de habilidades. Si es `true`, se mostrará. Si es `false`, no se mostrará.*
-
-#### Certificaciones (`certifications` - archivos JSON)
-```json
-{
-  "title": "Nombre de la certificación",
-  "issuer": "Entidad emisora",
-  "date": "Ene 2023",
-  "url": "https://certificado.com",
-  "lang": "es"
+  "skill": "Skill name",
+  "description": "Skill description",
+  "release": "Additional information",
+  "icon": "icon-name",
+  "feed": true,
+  "lang": "en"
 }
 ```
 
-#### Educación (`university` - archivos JSON)
+_The `feed` field determines whether the skill will be displayed in the skills section. If `true`, it will be shown. If `false`, it won't be displayed._
+
+#### Certifications (`certifications` - JSON files)
 ```json
 {
-  "institution": "Nombre de la universidad",
-  "degree": "Título obtenido",
-  "field": "Campo de estudio",
+  "title": "Certification name",
+  "issuer": "Issuing entity",
+  "date": "Jan 2023",
+  "url": "https://certificate.com",
+  "lang": "en"
+}
+```
+
+#### Education (`university` - JSON files)
+```json
+{
+  "institution": "University name",
+  "degree": "Degree obtained",
+  "field": "Field of study",
   "dates": {
     "start": "Mar 2018",
-    "end": "Dic 2022"
+    "end": "Dec 2022"
   },
-  "lang": "es"
+  "lang": "en"
 }
 ```
 
-## 🌐 Internacionalización
+--- 
 
-El proyecto soporta múltiples idiomas. Las traducciones se gestionan en `src/i18n/ui.ts`. Para añadir un nuevo idioma:
+## 🌐 Internationalization
 
-1. Agrega el nuevo idioma en `astro.config.mjs` en la configuración de i18n
-2. Añade las traducciones en `src/i18n/ui.ts`
-3. Crea versiones de tu contenido en el nuevo idioma en las carpetas de contenido
+The project supports two languages: Spanish and English. Translations are managed in `src/i18n/ui.ts`.
 
-## 🚀 Instalación y uso
+---
 
-### Requisitos previos
-- Node.js (versión 18 o superior)
-- npm o yarn
+## 🚀 Installation and usage
 
-### Instalación
+### Prerequisites
 
+- Node.js (version 18 or higher)
+- npm or yarn
+
+### Installation
 ```bash
-# Clonar el repositorio
-git clone https://github.com/tu-usuario/portfolio-astro.git
+# Clone the repository or download zip
 cd portfolio-astro
 
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Iniciar servidor de desarrollo
+# Start development server
 npm run dev
 
-# Construir para producción
+# Build for production
 npm run build
-
-# Previsualizar la build
-npm run preview
 ```
 
-## 🎨 Personalización
+---
 
-### Tema y estilos
-- Los colores y variables del tema se definen en `tailwind.config.js`
-- Los estilos globales están en `src/styles/global.css`
-- El toggle de tema oscuro/claro se implementa en `src/scripts/theme.ts`
+## ☁️ Hosting
 
-### Contenido
-Para actualizar tu información personal:
-1. Modifica los archivos JSON y MDX en las carpetas dentro de `src/content/`
-2. Actualiza las traducciones en `src/i18n/ui.ts`
-3. Actualiza las constantes en `src/lib/const.ts` con tus propios enlaces
-4. Reemplaza las imágenes en `src/assets/` y `public/`
+This project is configured with the Vercel adapter, ideal for deploying directly to [Vercel](https://vercel.com/)
 
+If you want to host it on another service (Netlify, Cloudflare, etc.):
+
+1. Uninstall the current adapter:
+```bash
+npm uninstall @astrojs/vercel
+```
+
+2. Install the desired adapter (for example, Netlify):
+```bash
+npm install @astrojs/netlify
+```
+
+3. Modify the astro.config.mjs replacing the adapter:
+```typescript
+import { defineConfig } from "astro/config";
+import netlify from "@astrojs/netlify";
+
+export default defineConfig({
+  adapter: netlify(),
+});
+```
+
+---
+
+## ✅ Customization checklist
+
+Before deploying, make sure to:
+
+- [ ] Update `src/lib/const.ts` with your data
+- [ ] Modify translations in `src/i18n/ui.ts`
+- [ ] Add your profile picture in `src/assets/`
+- [ ] Add your resume in `public/pdf/` with the name `cv-en.pdf` and `cv-es.pdf`
+- [ ] Customize colors in `src/styles/global.css`
+- [ ] Add your projects in `src/content/projects/`
+- [ ] Add your experience in `src/content/experiences/`
+- [ ] Configure analytics (optional)
+- [ ] Test in different browsers
+- [ ] Verify SEO with Lighthouse
+
+---
+
+## 🎨 Customization
+
+### Theme and styles
+
+- Theme colors and variables are defined in `src/styles/global.css` along with global styles.
+- Project page information styles are defined in `src/styles/project-page.css`
+- Blog page information styles are defined in `src/styles/blog-page.css`
+- The dark/light theme toggle is implemented in `src/scripts/theme.ts`
+
+### Content
+
+To update your personal information:
+
+1. Modify JSON and MDX files in folders within `src/content/`
+2. Update translations in `src/i18n/ui.ts`
+3. Update constants in `src/lib/const.ts` with your own links
+4. Replace images in `src/assets/` and `public/`
+
+---
+
+## ⚙️ SEO
+
+- Index page SEO information is modified according to language in `src/i18n/ui.ts` in:
+```typescript
+  meta: {
+    index: {
+      title: "Your Name",
+      description: "Your Name, Full Stack Developer with experience in creating efficient and scalable web applications. Specialized in modern technologies in both the frontend and backend.",
+      keys: "Full Stack Developer, UX/UI Design, Learning, Optimization, React, Next.js, Node.js, Express, MongoDB, MySQL, PostgreSQL, Docker, Git, GitHub, npm, yarn, Vercel, Netlify, AWS, Azure, Google Cloud, Firebase, RESTful APIs, GraphQL, TypeScript, JavaScript, HTML, CSS, Sass, Tailwind CSS, Bootstrap, Material UI, Reactstrap, React Hooks, React Context API, React Router, Redux, State Management, Form Handling, Validation, Responsive Design, Performance Optimization, Accessibility, SEO, Cross-Browser Compatibility, Unit Testing, Integration Testing, End-to-End Testing, Continuous Integration, Continuous Deployment, Agile Methodology, Scrum, Kanban, Project Management, Team Collaboration, Communication, Problem Solving, Attention to Detail, Adaptability, Flexibility, Creativity, Innovation, Passion for Technology, Continuous Learning"
+    }
+  }
+```
+- Automatic generation of `sitemap.xml`, `robots.txt`, and `rss.xml`
+- Optimization for search engines and accessibility
+
+---
+
+## 📜 License and commercial use
+
+This project includes a **commercial license** that allows:
+- ✅ Personal and commercial use
+- ✅ Code modification
+- ✅ Creating projects for clients
+- ❌ Reselling the source code as a template
+- ❌ Claiming authorship of the original design
+
+For more details, see the `LICENSE.md` file

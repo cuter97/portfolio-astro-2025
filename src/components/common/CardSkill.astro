@@ -17,7 +17,7 @@ const { skill } = Astro.props as Prop;
   >
     <div class="skill-icon-wrapper flex flex-col items-center">
       <Icon
-        name={skill.data.icon}
+        name=`skills/${skill.data.icon}`
         class="skill-icon w-12 lg:w-14 h-12 lg:h-14 filter grayscale group-hover:grayscale-0 transition-all duration-300"
       />
     </div>
@@ -31,10 +31,10 @@ const { skill } = Astro.props as Prop;
   import { gsap } from "gsap";
 
   function animationCard() {
-    // Buscar las cards
+    // Search the cards
     const cards = document.querySelectorAll(".skill-card");
 
-    // Si no hay cards en esta página, no hacer nada
+    // If there are no cards on this page, do nothing.
     if (cards.length === 0) return;
 
     cards.forEach((card) => {
@@ -48,41 +48,25 @@ const { skill } = Astro.props as Prop;
         gsap.killTweensOf([card, icon, text]);
 
         gsap.to(icon, {
-          // rotation: 360,
           scale: 1.1,
           duration: 0.1,
           ease: "power2.out",
           overwrite: "auto",
         });
-
-        // gsap.to(text, {
-        //   y: -3,
-        //   duration: 0.3,
-        //   ease: "power2.out",
-        //   overwrite: "auto",
-        // });
       });
 
       card.addEventListener("mouseleave", () => {
         gsap.killTweensOf([card, icon, text]);
 
         gsap.to(icon, {
-          // rotation: 0,
           scale: 1,
           duration: 0.1,
           ease: "power2.inOut",
           overwrite: "auto",
         });
-
-        // gsap.to(text, {
-        //   y: 0,
-        //   duration: 0.3,
-        //   ease: "power2.inOut",
-        //   overwrite: "auto",
-        // });
       });
 
-      // Matar animaciones previas antes de crear nuevas
+      // Kill previous animations before creating new ones
       gsap.killTweensOf(iconWrapper);
       
       gsap.to(iconWrapper, {
@@ -98,7 +82,7 @@ const { skill } = Astro.props as Prop;
   animationCard();
   document.addEventListener("astro:page-load", animationCard);
   
-  // Limpiar al salir de la página
+  // Clear on page exit
   document.addEventListener("astro:before-preparation", () => {
     gsap.killTweensOf(".skill-icon-wrapper");
   });

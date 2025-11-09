@@ -35,7 +35,7 @@ export default defineConfig({
     },
   },
 
-  site: 'http://localhost:4321',
+  site: 'https://agustincastets.vercel.app',
 
   vite: {
     plugins: [tailwindcss()]

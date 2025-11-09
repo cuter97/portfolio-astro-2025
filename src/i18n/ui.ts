@@ -8,6 +8,11 @@ export const labels = {
     sonner: {
       title: "Email copied to clipboard"
     },
+    pagination: {
+      page: "Page",
+      of: "of",
+      ariaLabel: "Pagination controls"
+    },
     navbar: {
       home: {
         title: "Home",
@@ -141,6 +146,12 @@ export const labels = {
       },
       power: "Powered by",
     },
+    page404: {
+      title: "Page Not Found",
+      description: "Oops! The page you're looking for seems to have wandered off into the digital void.",
+      btn: "Go to Home",
+      text: "You might want to check the URL or return to the homepage."
+    },
     meta: {
       index: {
         title: "Agustin Castets",
@@ -152,6 +163,11 @@ export const labels = {
   es: {
     sonner: {
       title: "Correo copiado al portapapeles"
+    },
+    pagination: {
+      page: "Página",
+      of: "de",
+      ariaLabel: "Control de paginación"
     },
     navbar: {
       home: {
@@ -285,6 +301,12 @@ export const labels = {
         talk: "¿Hablamos?"
       },
       power: "Desarrollado con",
+    },
+    page404: {
+      title: "Página no encontrada",
+      description: "¡Ups! La página que buscas parece haberse perdido en el vacío digital.",
+      btn: "Ir al inicio",
+      text: "Tal vez quieras verificar la URL o volver a la página principal."
     },
     meta: {
       index: {

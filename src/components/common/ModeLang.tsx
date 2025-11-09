@@ -12,9 +12,7 @@ export function ModeLang({ currentLocale, currentPath }: { currentLocale: string
 
      try {
       const segments = currentPath.split('/').filter(Boolean);
-      // Quitamos el locale actual (primer segmento)
       const pathWithoutLocale = segments.slice(1).join('/');
-      // Construimos la nueva ruta
       const newPath = pathWithoutLocale ? `/${newLocale}/${pathWithoutLocale}` : `/${newLocale}`;
 
       window.location.href = newPath;

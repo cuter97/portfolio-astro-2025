@@ -17,7 +17,7 @@ const { skill } = Astro.props as Prop;
   >
     <div class="skill-icon-wrapper flex flex-col items-center">
       <Icon
-        name={skill.data.icon}
+        name=`skills/${skill.data.icon}`
         class="skill-icon w-12 lg:w-14 h-12 lg:h-14 filter grayscale group-hover:grayscale-0 transition-all duration-300"
       />
     </div>

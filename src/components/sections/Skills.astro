@@ -44,7 +44,6 @@ const { skills } = Astro.props as Props;
 
   const cards = document.querySelectorAll(".skill-card");
 
-  // Estado inicial de las cartas (apiladas en el centro del contenedor)
   gsap.set(cards, {
     opacity: 0,
     scale: 0.3,
@@ -53,7 +52,6 @@ const { skills } = Astro.props as Props;
     rotation: 0,
   });
 
-  // Animación de repartir cartas
   gsap.to(cards, {
     scrollTrigger: {
       trigger: ".skills-grid",
@@ -84,7 +82,6 @@ const { skills } = Astro.props as Props;
 </script>
 
 <style>
-  /* Prevenir scroll horizontal durante la animación */
   #skills {
     overflow-x: hidden;
   }

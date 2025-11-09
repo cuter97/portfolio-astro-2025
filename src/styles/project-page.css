@@ -1,4 +1,4 @@
-.card-project {
+.project-page {
   @apply dark:text-muted-foreground text-foreground;
 
   h1 {

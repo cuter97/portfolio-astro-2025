@@ -64,13 +64,13 @@ const sections = [
 
     sections.forEach((sec) => sec && observer.observe(sec));
 
-    // Limpiar observer cuando se cambie de página
+    // Clear observer when changing pages
     document.addEventListener("astro:before-preparation", () => {
       observer.disconnect();
     });
   }
 
-  // Ejecutar después de cada navegación de Astro
+  // Run after each Astro navigation
   document.addEventListener("astro:page-load", initSectionObserver);
 </script>
 

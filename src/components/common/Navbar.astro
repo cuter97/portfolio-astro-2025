@@ -125,7 +125,7 @@ const menuItems = [
     <div class="flex lg:hidden items-center gap-2 z-50">
       <MobileMenu
         client:load
-        locale={currentLang as "en" | "es"}
+        locale={currentLang as keyof typeof lenguages}
         currentPath={pathname}
         menuItems={menuItems}
       >
@@ -135,7 +135,7 @@ const menuItems = [
   </div>
 </nav>
 
-<!-- Espaciador para compensar el navbar fijo -->
+<!-- Spacer to compensate for the fixed navbar -->
 <div class="h-20" aria-hidden="true"></div>
 
 <script>

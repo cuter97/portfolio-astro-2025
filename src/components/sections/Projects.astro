@@ -45,12 +45,10 @@ const { filteredProjects, filteredSkills } = Astro.props as Props;
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Esperar a que los componentes React se monten
   setTimeout(() => {
     const projectCards = document.querySelectorAll(".project-card-wrapper");
 
     projectCards.forEach((card, index) => {
-      // Estado inicial: rotadas en 3D y transparentes
       gsap.set(card, {
         opacity: 0,
         rotationY: -90,
@@ -58,7 +56,6 @@ const { filteredProjects, filteredSkills } = Astro.props as Props;
         transformOrigin: "center center",
       });
 
-      // Animación de entrada tipo "flip"
       gsap.to(card, {
         scrollTrigger: {
           trigger: card,

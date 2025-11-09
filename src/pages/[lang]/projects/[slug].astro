@@ -9,6 +9,7 @@ import { ChevronLeft, ExternalLink } from "lucide-react";
 import { useTranslation } from "@/lib/utils";
 import type { lenguages } from "@/i18n/ui";
 import CardSkillMobile from "@/components/common/CardSkillMobile.astro";
+import CustomLink from "@/components/common/CustomLink.astro";
 
 export const prerender = true;
 export const getStaticPaths = (async () => {
@@ -42,20 +43,16 @@ const { Content } = await render(project);
 
 <Layout title={project.data.title}>
   <div class="max-w-7xl mx-auto px-4">
-    <a
-      href={`/${project.id.split("/")[0]}/#projects`}
-      class="inline-flex items-center gap-2 px-6 py-2 bg-muted-foreground/10 hover:bg-foreground hover:text-background rounded-full text-sm font-medium transition-colors"
-    >
-      <ChevronLeft size={16} />
-      {t("buttons.back")}
-    </a>
+    <CustomLink href={`/${project.id.split("/")[0]}/#projects`} variant="tertiary" size="sm" tooltip={false}>
+      <ChevronLeft size={16} /> {t("buttons.back")}
+    </CustomLink>
   </div>
   <article
     transition:name="transition"
     transition:animate="fade"
     class="flex flex-col lg:flex-row justify-center lg:gap-10 xl:gap-20 pb-10 px-4 xl:px-0 pt-10"
   >
-    <div class="card-project lg:max-w-2xl xl:max-w-3xl">
+    <div class="project-page lg:max-w-2xl xl:max-w-3xl">
       <Content />
     </div>
     <div class="space-y-6 max-w-3xl mt-6 lg:mt-0">
@@ -90,7 +87,7 @@ const { Content } = await render(project);
                 href={project.data.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center space-x-2 underline hover:decoration-dotted hover:text-terciary underline-offset-4 text-lg lg:text-xl"
+                class="inline-flex items-center space-x-2 underline hover:decoration-dotted hover:text-terciary underline-offset-4 text-lg lg:text-xl"
               >
                 <span>Github</span>
                 <ExternalLink size={18} className="text-terciary" />

@@ -4,7 +4,7 @@ import { CustomTooltip } from "./CustomTooltip";
 import { cn } from "@/lib/utils";
 import type { HTMLAttributes } from "astro/types";
 
-const linkVariants = cva("flex items-center space-x-2", {
+const linkVariants = cva("inline-flex items-center space-x-2", {
   variants: {
     variant: {
       default:
@@ -13,11 +13,14 @@ const linkVariants = cva("flex items-center space-x-2", {
         "underline text-terciary underline-offset-4 hover:decoration-dotted hover:text-primary font-titan-one",
       secondary:
         "h-9 w-max rounded-md bg-background px-4 py-2 text-base font-medium hover:bg-foreground/10 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-accent data-[state=open]:text-accent-foreground data-[state=open]:focus:bg-accent data-[state=open]:bg-accent/50 focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1",
+      tertiary: 
+        "px-6 py-2 bg-muted-foreground/10 hover:bg-foreground hover:text-background rounded-full font-medium transition-colors",
     },
     size: {
       default: "text-lg lg:text-xl",
       xl: "text-lg lg:text-2xl",
       md: "text-base",
+      sm: "text-sm gap-2"
     },
   },
   defaultVariants: {

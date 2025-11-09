@@ -8,6 +8,7 @@ import { useTranslation } from "@/lib/utils";
 import { Icon } from "astro-icon/components";
 import type { lenguages } from "@/i18n/ui";
 import Sidebar from "./common/Sidebar.astro";
+import { name } from "@/lib/const";
 
 interface Props {
   className?: string;
@@ -28,7 +29,7 @@ const { className } = Astro.props as Props;
     >
       <Image
         src={img}
-        alt="Foto de perfil de Agustin Castets"
+        alt={name}
         width={168}
         class="rounded-xl shadow-[0_0_300px_20px_rgba(255,255,255,0.2)] transition-all duration-300 group-hover:brightness-50"
       />
@@ -41,9 +42,7 @@ const { className } = Astro.props as Props;
     </a>
   </figure>
   <div class="overflow-hidden text-center font-roboto-mono">
-    <h1 class="text-3xl font-titan-one mb-2">
-      {t!("header.name")}
-    </h1>
+    <h1 class="text-3xl font-titan-one mb-2">{name}</h1>
     <h2 class="text-base text-balance text-muted-foreground mb-3">
       {t!("header.profession")}
     </h2>

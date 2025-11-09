@@ -1,0 +1,51 @@
+---
+import type { lenguages } from "@/i18n/ui";
+import { useTranslation } from "@/lib/utils";
+import { type Page } from "astro";
+import { type CollectionEntry } from "astro:content";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+interface Prop {
+  page: Page<CollectionEntry<"blog">>;
+}
+
+const currentLang = Astro.currentLocale || "en";
+const t = useTranslation(currentLang as keyof typeof lenguages);
+
+const { page } = Astro.props as Prop;
+
+const total = [...Array(page.lastPage).keys()].length;
+---
+
+<section
+  aria-label={t("pagination.ariaLabel")}
+  class="flex justify-center space-x-4 items-center pt-10"
+>
+  <span class="text-xl font-mono text-foreground">
+    {t("pagination.page")} {page.currentPage} {t("pagination.of")} {total}
+  </span>
+  <a
+    href={page.url.prev}
+    class:list={[
+      "p-2 rounded cursor-pointer",
+      {
+        "bg-secondary hover:bg-background hover:text-terciary": page.url.prev,
+        "text-muted-foreground hover:bg-background": !page.url.prev,
+      },
+    ]}
+  >
+    <ChevronLeft />
+  </a>
+  <a
+    href={page.url.next}
+    class:list={[
+      "p-2 rounded cursor-pointer",
+      {
+        "bg-secondary hover:bg-background hover:text-terciary": page.url.next,
+        "text-muted-foreground hover:bg-background": !page.url.next,
+      },
+    ]}
+  >
+    <ChevronRight />
+  </a>
+</section>

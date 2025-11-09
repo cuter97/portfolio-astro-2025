@@ -78,13 +78,13 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.string().transform((str) => {
-      // Detecta formato DD/MM/YYYY o DD-MM-YYYY
+      // Detects format DD/MM/YYYY or DD-MM-YYYY
       const match = str.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
       if (match) {
         const [_, day, month, year] = match;
         return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
       }
-      // Si no coincide, intenta parsearlo como venga
+      // If it doesn't match, try parsing it as it comes.
       return new Date(str);
     }),
     tags: z.array(z.enum(["article", "update", "project", "news"])),

@@ -11,8 +11,8 @@ interface Props {
 export const CustomHoverCard = ({ skill, children }: Props) => {
   return (
     <HoverCard openDelay={100}>
-      <HoverCardTrigger>
-        {children}
+      <HoverCardTrigger asChild>
+        <div className="inline-block cursor-help">{children}</div>
       </HoverCardTrigger>
       <HoverCardContent className='w-96 border-terciary/40'>
         <div className="flex justify-between space-x-4">

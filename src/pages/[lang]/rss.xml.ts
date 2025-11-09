@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
 export const GET: APIRoute = async ({ params, site }) => {
-	const lang = params.lang; // 'es' o 'en'
+	const lang = params.lang; // 'es' or 'en'
 
 	const posts = await getCollection('blog');
 

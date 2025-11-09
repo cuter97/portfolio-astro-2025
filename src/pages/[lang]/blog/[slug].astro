@@ -9,6 +9,7 @@ import type { lenguages } from "@/i18n/ui";
 import type { GetStaticPaths } from "astro";
 import { ChevronLeft, ChevronUp } from "lucide-react";
 import FormatterDate from "@/components/common/FormatterDate.astro";
+import CustomLink from "@/components/common/CustomLink.astro";
 
 export const prerender = true;
 
@@ -31,22 +32,27 @@ const t = useTranslation(currentLang as keyof typeof lenguages);
 
 const { blog } = Astro.props;
 const { Content, headings } = await render(blog);
+const blogLang = blog.id.split("/")[0];
 ---
 
 <Layout title={blog.data.title}>
   <article
     transition:name="transition"
     transition:animate="fade"
-    class="flex max-w-7xl mx-auto gap-6 pb-12 lg:px-0"
+    class="grid grid-cols-1 xl:grid-cols-[1fr_auto] max-w-7xl mx-auto gap-6 pb-12 lg:px-0"
   >
-    <div class="blog max-w-4xl mx-auto px-4">
-      <a
-        href={`/${blog.id.split("/")[0]}/blog`}
-        class="button mb-6"
-      >
-        <ChevronLeft size={16} />
-        {t("buttons.myBlog")}
-      </a>
+    <div class="blog max-w-4xl mx-auto px-4 w-full">
+      <div class="mb-10">
+        <CustomLink
+          href={`/${blogLang}/blog`}
+          variant="tertiary"
+          size="sm"
+          tooltip={false}
+        >
+          <ChevronLeft size={16} />
+          {t("buttons.myBlog")}
+        </CustomLink>
+      </div>
 
       <div
         class="mb-6 flex flex-col lg:flex-row lg:items-center gap-3 lg:gap-6"
@@ -74,8 +80,12 @@ const { Content, headings } = await render(blog);
       <p class="text-sm lg:text-base text-muted-foreground mb-4">
         {blog.data.description}
       </p>
-      <div class="block xl:hidden flex-shrink-0">
-        <NavBlog client:only="react" headings={headings} title={t("blog.onThisPage")} />
+      <div class="block xl:hidden mb-6">
+        <NavBlog
+          client:only="react"
+          headings={headings}
+          title={t("blog.onThisPage")}
+        />
       </div>
       <Content />
 
@@ -87,8 +97,13 @@ const { Content, headings } = await render(blog);
         {t("buttons.backToTop")}
       </button>
     </div>
-    <div class="hidden xl:block">
-      <NavBlog client:only="react" headings={headings} title={t("blog.onThisPage")} />
-    </div>
+
+    <aside class="hidden xl:block w-96">
+      <NavBlog
+        client:only="react"
+        headings={headings}
+        title={t("blog.onThisPage")}
+      />
+    </aside>
   </article>
 </Layout>

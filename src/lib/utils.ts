@@ -28,7 +28,7 @@ export function useTranslation(lang: keyof typeof labels) {
     
     if (typeof value === 'string') return value;
     
-    // Fallback al idioma por defecto
+    // Fallback to default language
     value = labels[defaultLang];
     for (const k of keys) {
       value = value?.[k];

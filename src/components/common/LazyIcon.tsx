@@ -1,5 +1,5 @@
-// Importa todos los SVGs como URLs
-const icons = import.meta.glob("../../icons/*.svg", {
+// Import all SVGs as URLs
+const icons = import.meta.glob("../../icons/skills/*.svg", {
   eager: true,
   query: "?url",
   import: "default"
@@ -11,7 +11,7 @@ interface IconProps {
 }
 
 export const LazyIcon = ({ name, className }: IconProps) => {
-  const iconUrl = icons[`../../icons/${name}.svg`];
+  const iconUrl = icons[`../../icons/skills/${name}.svg`];
 
   if (!iconUrl) {
     return (

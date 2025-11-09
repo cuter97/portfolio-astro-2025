@@ -23,7 +23,7 @@ const { description, image, keys, title } = Astro.props;
     />
     <ClientRouter />
     <script is:inline>
-      // Script que se ejecuta inmediatamente para evitar parpadeo
+      // Script that runs immediately to prevent flickering
       (function () {
         function applyTheme() {
           try {
@@ -35,7 +35,7 @@ const { description, image, keys, title } = Astro.props;
             } else if (stored === "theme-light") {
               isDark = false;
             } else {
-              // Sin preferencia almacenada -> seguir system
+              // No stored preference -> follow system
               isDark =
                 window.matchMedia &&
                 window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -47,7 +47,7 @@ const { description, image, keys, title } = Astro.props;
               document.documentElement.classList.remove("dark");
             }
           } catch (e) {
-            // localStorage inaccesible -> usar system
+            // localStorage inaccessible -> use system
             if (
               window.matchMedia &&
               window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -70,7 +70,7 @@ const { description, image, keys, title } = Astro.props;
 </html>
 
 <script>
-  // Este script se ejecuta después de cada transición de página
+  // This script runs after each page transition
   function applyTheme() {
     try {
       const stored = localStorage.getItem("theme");
@@ -81,7 +81,7 @@ const { description, image, keys, title } = Astro.props;
       } else if (stored === "theme-light") {
         isDark = false;
       } else {
-        // Sin preferencia almacenada -> seguir system
+        // No stored preference -> follow system
         isDark =
           window.matchMedia &&
           window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -93,7 +93,7 @@ const { description, image, keys, title } = Astro.props;
         document.documentElement.classList.remove("dark");
       }
     } catch (e) {
-      // localStorage inaccesible -> usar system
+      // localStorage inaccesible -> use system
       if (
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches

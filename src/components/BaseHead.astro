@@ -8,7 +8,7 @@ interface Props {
   image?: string;
   keywords?: string;
 }
-const currentLang = Astro.currentLocale || "es";
+const currentLang = Astro.currentLocale || "en";
 const t = useTranslation(currentLang as keyof typeof lenguages);
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
