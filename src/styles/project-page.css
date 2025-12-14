@@ -6,7 +6,11 @@
   }
 
   h2 {
-    @apply text-xl font-bold text-foreground mb-2;
+    @apply text-lg lg:text-xl font-bold text-foreground mb-2;
+  }
+
+  h3 {
+    @apply text-base lg:text-lg font-bold text-foreground mb-2;
   }
 
   p {
@@ -27,5 +31,9 @@
 
   img {
     @apply my-6;
+  }
+
+  hr {
+    @apply my-6 border-terciary;
   }
 }
