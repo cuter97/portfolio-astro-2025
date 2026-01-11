@@ -111,11 +111,11 @@ If the names don't match exactly, the icons won't display correctly.
 ---
 title: "Project name"
 description: "Project description"
-image: "/path/to/image.webp"
-tags: ["react", "typescript", "tailwindcss"]
-links:
-  github: "https://github.com/user/project"
-  demo: "https://demo.project.com"
+descriptionTags: ["Built with React, Astro and Tailwind."]
+tags: ["react", "typescript", "tailwindcss"]1
+pageTags: ["react", "typescript", "tailwindcss"]
+githubLink: "https://github.com/"
+demoLink: "https://agustincastets.vercel.app/"
 lang: "en"
 ---
 
