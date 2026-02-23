@@ -1,0 +1,93 @@
+---
+title: Banyan Studio
+description: Plantilla profesional y de alto rendimiento para estudios creativos digitales, animaciones con GSAP y un sistema de contacto completo.
+tags:
+  - astro
+  - typescript
+pageTags:
+  - astro
+  - tailwind
+  - typescript
+  - gsap
+descriptionTags:
+  - Diseño oscuro moderno con animaciones scroll-driven de alto impacto.
+  - Sistema de contacto full-stack con validación y entrega de emails.
+lang: es
+demoLink: https://studio-banyan.vercel.app/
+date: 2026-02-14
+feed: true
+---
+
+# BANYAN STUDIO – Plantilla para Estudios Creativos Digitales
+
+**Banyan Studio** es una plantilla profesional de alto rendimiento diseñada para estudios creativos, agencias de diseño y equipos digitales que buscan destacar con una presencia web sofisticada. El proyecto combina la velocidad de Astro 5 con animaciones de nivel profesional impulsadas por GSAP, logrando una experiencia visual oscura, moderna y completamente fluida.
+
+El enfoque central del proyecto es el **movimiento como lenguaje de diseño**: cada sección cobra vida mediante scroll-triggers, apilamiento de tarjetas y paneles interactivos del proceso de trabajo, todo orquestado con precisión para comunicar la identidad premium de un estudio creativo.
+
+![Captura de pantalla del sitio web Banyan Studio](/img/img-8.webp)
+
+## Excelencia Técnica
+
+Banyan Studio es una **solución full-stack lista para producción**:
+
+- **Astro 5 + TypeScript**: Arquitectura SSR con generación estática y renderizado en el servidor, completamente tipada.
+- **Tailwind CSS v4**: Motor CSS-first con el sistema de diseño más reciente de Tailwind para estilos utilitarios eficientes.
+- **GSAP 3.14 + ScrollTrigger**: Animaciones de línea de tiempo, apilamiento sticky de tarjetas y paneles de proceso activados por scroll.
+- **Lenis 1.3**: Scroll ultrafluido integrado a nivel de layout para una experiencia premium en toda la plantilla.
+- **Server Actions + Zod**: Formulario de contacto con validación robusta del lado del servidor.
+- **Resend API**: Integración de entrega de emails profesional y confiable.
+- **Astro Content Collections**: Gestión de proyectos y páginas legales con esquemas validados por Zod.
+- **Contenido Centralizado**: Todos los textos gestionados desde `labels.ts` para facilitar mantenimiento y futuras traducciones.
+
+## Características Principales
+
+- **Rendimiento Optimizado**: Tiempos de carga mínimos gracias a la arquitectura de islas de Astro y procesamiento de imágenes con Sharp.
+- **Diseño Oscuro y Accesible**: UI contemporánea con colores de acento vibrantes, totalmente responsiva y compatible con estándares WCAG.
+- **Animaciones Avanzadas**: Apilamiento sticky de tarjetas de proyectos, navbar con shrink en scroll, menú fullscreen y paneles del proceso de trabajo.
+- **Backend Listo para Usar**: Sistema de contacto funcional con rate limiting mediante Upstash Redis.
+- **SEO Completo**: Meta tags dinámicos, Open Graph, sitemap automático y robots.txt configurados de base.
+
+## Páginas Incluidas
+
+Banyan Studio ofrece una estructura completa para un estudio creativo digital:
+
+### Inicio (Home)
+- Sección Hero con titular animado.
+- Descripción del estudio y showcase de servicios con tarjetas numeradas.
+- Sección "Por qué elegirnos" con tarjetas de características destacadas.
+- Proyectos destacados con animación de apilamiento sticky en desktop.
+- Testimonios de clientes y CTA estratégico.
+
+### Works (`/works`)
+- Grilla completa del portfolio con tarjetas de proyectos.
+- Páginas de detalle individuales (`/works/[slug]`) con layout de dos columnas y sección "Más proyectos".
+
+### Studio (`/studio`)
+- Hero con overview y declaración de misión del estudio.
+- Paneles interactivos del proceso de trabajo con animaciones scroll-driven.
+- Perfiles del equipo con enlaces a redes sociales.
+
+### Contacto (`/contact`)
+- Información de contacto completa (dirección, email, teléfono).
+- Formulario full-stack con validación en tiempo real.
+- Sección de FAQ con acordeones fluidos.
+
+### Legales y Utilidades
+- Términos de Servicio, Política de Privacidad, Licencias y página 404 personalizada.
+
+---
+
+## Experiencia de Desarrollo (DX)
+
+El proyecto fue construido pensando en la escalabilidad y el mantenimiento a largo plazo:
+
+- **Arquitectura Modular**: Separación clara entre componentes comunes, de UI y secciones de página, organizados en capas de `common/`, `ui/` y `sections/`.
+- **Configuración Tipada**: Archivos de configuración en `src/config/` para servicios, proyectos, equipo y navegación, todos con TypeScript.
+- **Sistema de Temas Global**: Personalización de colores, tipografía y espaciado mediante variables CSS en `global.css`.
+- **Tipografía Premium**: Fuentes Tanker y Clash Grotesk incluidas, configuradas a nivel de tema con Tailwind.
+- **Animaciones SSR-Safe**: Guards de cliente, cleanup con `gsap.context()` y reinicialización en transiciones de página para evitar flickering.
+- **Listo para Producción**: Pre-configurado con el adaptador de Vercel para despliegue con edge functions.
+
+## Resumen
+
+**Banyan Studio** es una base técnica robusta y visualmente sofisticada para cualquier estudio creativo digital. Equilibra a la perfección la velocidad de un sitio estático con la potencia de un backend funcional, ofreciendo un punto de partida premium para agencias y estudios que quieren demostrar su nivel técnico y su sensibilidad estética desde el primer momento.

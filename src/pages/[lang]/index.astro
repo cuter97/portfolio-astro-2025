@@ -20,8 +20,8 @@ export const getStaticPaths = (async () => {
 
   return languages.flatMap((lang) => {
     const filteredProjects = projects.filter((proj) => {
-      return proj.id.startsWith(`${lang}/`);
-    });
+  return proj.id.startsWith(`${lang}/`) && proj.data.feed === true;
+});
 
     const filteredSkills = skills.filter((skill) => {
       return skill.id.startsWith(`${lang}/`);

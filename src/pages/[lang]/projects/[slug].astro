@@ -44,7 +44,10 @@ const { Content } = await render(project);
 <Layout title={project.data.title}>
   <div class="max-w-7xl mx-auto px-4">
     <CustomLink href={`/${project.id.split("/")[0]}/#projects`} variant="tertiary" size="sm" tooltip={false}>
-      <ChevronLeft size={16} /> {t("buttons.back")}
+      <ChevronLeft size={16} /> {currentLang === 'es' ? 'Home' : 'Home'}
+    </CustomLink>
+    <CustomLink href={`/${currentLang}/projects`} variant="tertiary" size="sm" tooltip={false}>
+      <ChevronLeft size={16} /> {currentLang === 'es' ? 'Proyectos' : 'Projects'}
     </CustomLink>
   </div>
   <article

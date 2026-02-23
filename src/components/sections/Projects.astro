@@ -36,6 +36,21 @@ const { filteredProjects, filteredSkills } = Astro.props as Props;
         );
       })
     }
+    <div class="project-card-wrapper">
+      <a
+        href={`/${currentLang}/projects`}
+        class="view-more-card flex flex-col items-center justify-center gap-3 h-full min-h-[160px] rounded-xl border border-border bg-card text-card-foreground transition-all duration-300 hover:bg-accent hover:border-accent-foreground/20 group p-6"
+      >
+        <div class="icon-wrapper flex items-center justify-center w-12 h-12 rounded-full border border-border bg-background transition-all duration-300 group-hover:scale-110 group-hover:border-primary/40">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </div>
+        <span class="text-base font-semibold tracking-tight text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+          {currentLang === 'es' ? 'Ver más proyectos' : 'View more projects'}
+        </span>
+      </a>
+    </div>
   </div>
  <div class="flex justify-center pt-4">
     <a
@@ -47,7 +62,7 @@ const { filteredProjects, filteredSkills } = Astro.props as Props;
       <span class="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></span>
       <span class="relative flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-12"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        {currentLang === 'es' ? 'Explorar mi tienda de templates' : 'Browse my template store'}
+        {currentLang === 'es' ? 'Explora mi tienda de templates' : 'Browse my template store'}
       </span>
     </a>
   </div>

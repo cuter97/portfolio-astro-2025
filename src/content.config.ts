@@ -12,6 +12,8 @@ const project = defineCollection({
     githubLink: z.string().url().optional(),
     demoLink: z.string().url().optional(),
     lang: z.enum(["en", "es"]),
+    date: z.date(),
+    feed: z.boolean().default(false),
   }),
 });
 

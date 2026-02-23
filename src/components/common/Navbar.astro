@@ -20,24 +20,9 @@ const menuItems = [
     text: t("navbar.home.description"),
   },
   {
-    href: `/${currentLang}/#experience`,
-    label: t("navbar.experience.title"),
-    text: t("navbar.experience.description"),
-  },
-  {
-    href: `/${currentLang}/#projects`,
+    href: getRelativeLocaleUrl(currentLang, "/projects"),
     label: t("navbar.projects.title"),
     text: t("navbar.projects.description"),
-  },
-  {
-    href: `/${currentLang}/#skills`,
-    label: t("navbar.skills.title"),
-    text: t("navbar.skills.description"),
-  },
-  {
-    href: `/${currentLang}/#education`,
-    label: t("navbar.education.title"),
-    text: t("navbar.education.description"),
   },
   {
     href: getRelativeLocaleUrl(currentLang, "/about"),
@@ -82,6 +67,19 @@ const menuItems = [
           : ""}
       >
         {t("navbar.home.title")}
+      </CustomLink>
+
+      <CustomLink
+        href={getRelativeLocaleUrl(currentLang, "/projects")}
+        aria-label="Projects page"
+        tooltip={false}
+        variant="secondary"
+        size="md"
+        className={pathname === getRelativeLocaleUrl(currentLang, "/projects")
+          ? "bg-foreground/10"
+          : ""}
+      >
+        {t("navbar.projects.title")}
       </CustomLink>
 
       <CustomLink

@@ -1,0 +1,77 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { CardProject } from "@/components/common/CardProject";
+import type { lenguages } from "@/i18n/ui";
+import CustomLink from "@/components/common/CustomLink.astro";
+import { ChevronLeft } from "lucide-react";
+
+export const prerender = true;
+
+export const getStaticPaths = (async () => {
+  const [projects, skills] = await Promise.all([
+    getCollection("project"),
+    getCollection("skill"),
+  ]);
+
+  const languages = ["es", "en"];
+
+  return languages.flatMap((lang) => {
+    const filteredProjects = projects.filter((proj) => {
+      return proj.id.startsWith(`${lang}/`);
+    }).sort((a, b) => {
+      const dateA = new Date(a.data.date);
+      const dateB = new Date(b.data.date);
+      return dateB.getTime() - dateA.getTime();
+    });
+
+    const filteredSkills = skills.filter((skill) => {
+      return skill.id.startsWith(`${lang}/`);
+    });
+
+    return {
+      params: { lang },
+      props: {
+        filteredProjects,
+        filteredSkills,
+      },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const {
+  filteredProjects,
+  filteredSkills,
+} = Astro.props;
+
+const currentLang = Astro.currentLocale || "en";
+---
+
+<Layout title={`Agustin Castets | ${currentLang === 'es' ? 'Proyectos' : 'Projects'}`}>
+  <section class="max-w-7xl mx-auto py-8 md:py-24 px-4 space-y-6 md:space-y-12">
+    <CustomLink href={`/${currentLang}`} variant="tertiary" size="sm" tooltip={false}>
+      <ChevronLeft size={16} /> {currentLang === 'es' ? 'Inicio' : 'Home'}
+    </CustomLink>
+    <h3 class="text-3xl md:text-4xl lg:text-5xl font-titan-one uppercase">
+      {currentLang === 'es' ? 'Todos mis proyectos.' : 'All my projects.'}
+    </h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {
+        filteredProjects?.map((proj) => {
+          const projSkills = filteredSkills?.filter((skill) =>
+          proj.data.tags.some((tag) => skill.id.endsWith(tag.id))
+        );
+        return (
+          <CardProject
+          client:load
+          info={proj}
+          skills={projSkills}
+          currentLang={currentLang as keyof typeof lenguages}
+          />
+        );
+      })
+    }
+  </div>
+</section>
+</Layout>
