@@ -1,5 +1,5 @@
 ---
-import { linkedin, github, email } from "@/lib/const";
+import { linkedin, github, email, store } from "@/lib/const";
 import { useTranslation } from "@/lib/utils";
 import type { lenguages } from "@/i18n/ui";
 import { Image } from "astro:assets";
@@ -25,6 +25,7 @@ const socialLinks = [
     href: currentLang === "es" ? "/pdf/cv-es.pdf" : "/pdf/cv-en.pdf",
     label: t("footer.nav.resume"),
   },
+  { href: store, label: "Shop" },
 ];
 
 const resourceLinks = [

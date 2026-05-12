@@ -6,6 +6,7 @@ import { CardProject } from "@/components/common/CardProject";
 import type { lenguages } from "@/i18n/ui";
 import CustomLink from "@/components/common/CustomLink.astro";
 import { ChevronLeft } from "lucide-react";
+import ButtonStore from "@/components/common/ButtonStore.astro";
 
 export const prerender = true;
 
@@ -53,9 +54,9 @@ const currentLang = Astro.currentLocale || "en";
     <CustomLink href={`/${currentLang}`} variant="tertiary" size="sm" tooltip={false}>
       <ChevronLeft size={16} /> {currentLang === 'es' ? 'Inicio' : 'Home'}
     </CustomLink>
-    <h3 class="text-3xl md:text-4xl lg:text-5xl font-titan-one uppercase">
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-titan-one uppercase">
       {currentLang === 'es' ? 'Todos mis proyectos.' : 'All my projects.'}
-    </h3>
+    </h1>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
       {
         filteredProjects?.map((proj) => {
@@ -64,14 +65,15 @@ const currentLang = Astro.currentLocale || "en";
         );
         return (
           <CardProject
-          client:load
-          info={proj}
-          skills={projSkills}
-          currentLang={currentLang as keyof typeof lenguages}
+            client:load
+            info={proj}
+            skills={projSkills}
+            currentLang={currentLang as keyof typeof lenguages}
           />
         );
       })
     }
-  </div>
-</section>
+    </div>
+    <ButtonStore />
+  </section>
 </Layout>

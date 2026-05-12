@@ -1,0 +1,68 @@
+---
+title: Acacia Studio
+description: Plantilla premium para agencia digital con estética orgánica y arquitectura de alto rendimiento.
+tags:
+  - astro
+  - typescript
+pageTags:
+  - astro
+  - tailwind
+  - typescript
+  - gsap
+descriptionTags:
+  - Identidad visual ligera y orgánica con diseños de cuadrícula punteada y movimiento fluido.
+  - Sistema de contenido seguro con colecciones MDX y formulario de contacto integrado con Resend.
+lang: es
+demoLink: https://acacia-studio.vercel.app/
+date: 2026-03-25
+feed: false
+---
+
+# Acacia Studio – Estudio de Diseño Digital
+
+Acacia Studio es una plantilla premium diseñada para agencias digitales y estudios creativos que buscan proyectar una identidad visual refinada y profesional. El proyecto se centra en una estética orgánica y luminosa, utilizando líneas de cuadrícula punteadas y tonos cálidos para crear una experiencia de usuario tanto editorial como técnica.
+
+![Screenshot de Acacia Studio](/img/img-9.webp)
+
+## Stack Tecnológico
+
+Para este desarrollo, utilicé un conjunto de herramientas modernas enfocadas en la velocidad y el mantenimiento:
+
+- **Framework:** Astro v6 modo SSR (Server-Side Rendering) para una entrega de contenido ultrarrápida.
+- **Estilos:** Tailwind CSS v4 vía **@tailwindcss/vite**, permitiendo un sistema de diseño altamente personalizable y ligero.
+- **Animaciones:** Combinación de GSAP v3 para animaciones desencadenadas por scroll y Lenis para una experiencia de scroll suave y fluida.
+- **Gestión de contenido:** Astro Content Collections (MD/MDX) con validación de esquemas usando Zod.
+- **Infraestructura:** Integración con Resend para el sistema de contacto y Vercel para implementación escalable.
+
+## Desafíos Técnicos y Soluciones
+
+### 1. Arquitectura de Contenido Dinámico
+
+Implementé un sistema de colecciones de contenido para proyectos, artículos de blog y páginas legales. Esto permite que el sitio sea totalmente escalable; agregar un nuevo caso de estudio es tan simple como agregar un archivo MDX, con la seguridad de que todos los metadatos (como imágenes de portada o etiquetas) se validan automáticamente.
+
+### 2. Sistema de Etiquetas Centralizado
+
+Uno de los mayores desafíos fue facilitar la edición de texto sin tocar el código. Creé un sistema de etiquetas centralizado en src/config/labels.ts que utiliza una función auxiliar t() para renderizar cada texto en la interfaz. Esta arquitectura deja el sitio preparado para una futura internacionalización (i18n).
+
+### 3. Renderizado Híbrido para Máximo Rendimiento
+
+El proyecto utiliza renderizado híbrido: las páginas principales son SSR por defecto, mientras que las páginas de detalle (slugs) se pre-renderizan en tiempo de compilación (prerender = true). Esto asegura que el contenido denso se sirva de forma estática y rápida, mejorando drásticamente el SEO y los tiempos de carga.
+
+## Puntos Destacados
+
+### Identidad Visual Refinada
+
+Diseño basado en una cuadrícula punteada fija en el fondo (Layout.astro) y tipografía personalizada (Clash Display, Space Grotesk).
+
+### Sistema de Contacto Robusto
+
+Formulario con validación del lado del servidor, campo honeypot para prevenir bots y preparación para limitación de velocidad usando Upstash Redis.
+
+### SEO y Rendimiento
+
+Incluye generación dinámica de sitemap, RSS feed para el blog, archivos robots.txt y metadatos completos para Open Graph y Twitter.
+
+### Componentes de UI Polimorfos
+
+Creación de botones y elementos de interfaz reutilizables impulsados por CVA (Class Variance Authority) para una gestión limpia de variantes.
+Acacia Studio representa el equilibrio perfecto entre diseño de alta gama e ingeniería moderna. Es un ejemplo de cómo usar Astro 6 para construir sitios web comerciales que no solo son estéticamente impecables sino también técnicamente superiores en términos de accesibilidad, SEO y rendimiento.
