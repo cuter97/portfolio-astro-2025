@@ -1,0 +1,78 @@
+---
+title: ServiceFolio
+description: A minimalist service portfolio template built with Astro for creative professionals and developers.
+tags:
+  - astro
+  - typescript
+pageTags:
+  - astro
+  - tailwind
+  - typescript
+  - gsap
+descriptionTags:
+  - Efficient architecture with centralized configuration files and content collections.
+  - Server-side form handling via Astro Actions, integrated with Zod and Resend.
+lang: en
+demoLink: https://servicefolio.vercel.app/
+date: 2026-05-02
+feed: false
+---
+
+# Case Study: Building Service Folio – A High-Performance Portfolio Template
+
+## Overview
+
+Every creative professional and developer faces the same challenge: your website is your digital business card, but building one from scratch that looks great and runs flawlessly takes valuable time away from client work.
+
+I built **Service Folio** to solve this. It's a clean, minimal portfolio template designed for agencies, freelancers, and developers who need an efficient, high-performance base to showcase their work and scale their business without dealing with bulky UI frameworks or slow load times.
+
+![Screenshot of servicefolio](/img/img-11.webp)
+
+---
+
+## The Challenge
+
+Most modern portfolio templates suffer from two main issues:
+
+- **Performance bloat:** Relying on heavy frontend frameworks often leads to low Lighthouse scores and sluggish mobile experiences.
+- **Hardcoded clutter:** Updating a single project or changing a social link shouldn't require digging through dozens of deeply nested components.
+
+The goal was to create a codebase that is fully type-safe, loads instantly, uses smooth motion that doesn't sacrifice accessibility, and centralizes all data so any user can customize it in under ten minutes.
+
+---
+
+## Technical Approach & Architecture
+
+### 1. Hybrid Rendering with Astro 6
+
+To guarantee a lightning-fast experience, the project is built on **Astro 6** using a hybrid rendering strategy (`output: 'server'`). Content-driven sections like individual case studies and blog posts are selectively prerendered at build time, while dynamic components like the contact form run efficiently on the server.
+
+### 2. Micro-Interactions & Polished Motion
+
+Instead of scattering animation scripts everywhere, I consolidated the motion logic using **GSAP** and **Lenis** for global smooth scrolling.
+
+- **Intentional Reveals:** Reusable animation hooks handle structural elements smoothly.
+- **Custom Desktop Layer:** Elements declaring a `data-cursor` attribute hook into a desktop-only dynamic pointer tracker, creating interactive image previews when hovering over project listings.
+
+### 3. Centralized Data Flow
+
+To make customization foolproof, I completely isolated the presentation layer from the site data.
+
+- All editable text strings, navigation trees, and visual assets are mapped to simple, typed arrays inside `src/config/`.
+- Long-form content utilizes Astro's native **Content Collections** with robust **Zod schemas**, preventing compilation errors before deploying to production.
+
+---
+
+## Key Features Built-In
+
+- **Secure Form Handling:** The contact flow utilizes Astro Actions with built-in Honeypot protection against bots, forwarding validated entries directly to an inbox using the **Resend API**.
+- **Utility-First Styling:** Built entirely with **Tailwind CSS v4**, using fluid typography tokens and native CSS custom properties for a seamless Dark/Light mode toggle that syncs with `localStorage`.
+- **Zero-Config SEO:** A centralized `<BaseHead/>` component automatically handles canonical mappings, Open Graph previews for social networks, automated sitemaps, and structured RSS fields.
+
+---
+
+## Results and Takeaways
+
+Building Service Folio proved that you don't need megabytes of JavaScript to deliver a premium user experience. By leveraging Astro's component-island model and handling heavy tasks on the server, the template achieves near-perfect performance scores while maintaining complex layouts and rich scroll interactions.
+
+It stands as a reliable, modern foundation for anyone looking to put their work forward with maximum precision and zero technical overhead.

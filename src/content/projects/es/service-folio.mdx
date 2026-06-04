@@ -1,0 +1,78 @@
+---
+title: ServiceFolio
+description: Una plantilla de portafolio minimalista construida con Astro para profesionales creativos y desarrolladores.
+tags:
+  - astro
+  - typescript
+pageTags:
+  - astro
+  - tailwind
+  - typescript
+  - gsap
+descriptionTags:
+  - Arquitectura eficiente con archivos de configuración centralizados y colecciones de contenido.
+  - Manejo de formularios del lado del servidor mediante Astro Actions, integrado con Zod y Resend.
+lang: es
+demoLink: https://servicefolio.vercel.app/
+date: 2026-05-02
+feed: false
+---
+
+# Caso de Estudio: Construyendo Service Folio – Una Plantilla de Portafolio de Alto Rendimiento
+
+## Descripción General
+
+Todo profesional creativo y desarrollador enfrenta el mismo desafío: tu sitio web es tu tarjeta de presentación digital, pero construir uno desde cero que luzca bien y funcione de manera impecable consume un tiempo valioso que podría dedicarse al trabajo con clientes.
+
+Construí **Service Folio** para resolver esto. Es una plantilla de portafolio limpia y minimalista diseñada para agencias, freelancers y desarrolladores que necesitan una base eficiente y de alto rendimiento para mostrar su trabajo y escalar su negocio, sin tener que lidiar con frameworks de UI pesados ni tiempos de carga lentos.
+
+![Captura de pantalla del sitio web servicefolio](/img/img-11.webp)
+
+---
+
+## El Problema
+
+La mayoría de las plantillas de portafolio modernas sufren de dos problemas principales:
+
+- **Sobrecarga de rendimiento:** Depender de frameworks frontend pesados suele resultar en puntajes bajos en Lighthouse y experiencias móviles lentas.
+- **Código rígido y desordenado:** Actualizar un proyecto o cambiar un enlace de redes sociales no debería requerir navegar por decenas de componentes profundamente anidados.
+
+El objetivo era crear una base de código completamente tipada, que cargue instantáneamente, use animaciones fluidas sin sacrificar la accesibilidad, y centralice todos los datos para que cualquier usuario pueda personalizarla en menos de diez minutos.
+
+---
+
+## Enfoque Técnico y Arquitectura
+
+### 1. Renderizado Híbrido con Astro 6
+
+Para garantizar una experiencia ultrarrápida, el proyecto está construido sobre **Astro 6** usando una estrategia de renderizado híbrido (`output: 'server'`). Las secciones basadas en contenido, como los casos de estudio y las entradas de blog, se prerrenderizan selectivamente en tiempo de compilación, mientras que los componentes dinámicos como el formulario de contacto se ejecutan eficientemente en el servidor.
+
+### 2. Micro-Interacciones y Animaciones Cuidadas
+
+En lugar de dispersar scripts de animación por todas partes, consolidé la lógica de movimiento usando **GSAP** y **Lenis** para el scroll suave global.
+
+- **Revelaciones Intencionales:** Hooks de animación reutilizables gestionan los elementos estructurales de forma fluida.
+- **Capa de Escritorio Personalizada:** Los elementos que declaran un atributo `data-cursor` se conectan a un rastreador de puntero dinámico exclusivo para escritorio, creando vistas previas interactivas de imágenes al pasar el cursor sobre los proyectos.
+
+### 3. Flujo de Datos Centralizado
+
+Para hacer que la personalización sea simple e infalible, separé completamente la capa de presentación de los datos del sitio.
+
+- Todos los textos editables, árboles de navegación y recursos visuales están mapeados en arrays tipados dentro de `src/config/`.
+- El contenido de formato largo utiliza las **Content Collections** nativas de Astro con esquemas **Zod** robustos, previniendo errores de compilación antes de desplegar a producción.
+
+---
+
+## Funcionalidades Incluidas
+
+- **Manejo Seguro de Formularios:** El flujo de contacto utiliza Astro Actions con protección Honeypot incorporada contra bots, enviando las entradas validadas directamente a una bandeja de entrada mediante la **API de Resend**.
+- **Estilos Utility-First:** Construido íntegramente con **Tailwind CSS v4**, usando tokens de tipografía fluida y propiedades CSS nativas para un cambio de modo Oscuro/Claro sin fricciones que se sincroniza con `localStorage`.
+- **SEO Sin Configuración:** Un componente centralizado `<BaseHead/>` gestiona automáticamente los mapeos canónicos, las vistas previas Open Graph para redes sociales, los sitemaps automatizados y los campos RSS estructurados.
+
+---
+
+## Resultados y Conclusiones
+
+Construir Service Folio demostró que no se necesitan megabytes de JavaScript para ofrecer una experiencia de usuario premium. Al aprovechar el modelo de islas de componentes de Astro y delegar las tareas pesadas al servidor, la plantilla logra puntajes de rendimiento casi perfectos mientras mantiene layouts complejos e interacciones de scroll ricas.
+
+Es una base moderna y confiable para cualquier persona que quiera presentar su trabajo con máxima precisión y sin sobrecarga técnica.
